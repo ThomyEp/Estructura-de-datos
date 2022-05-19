@@ -17,9 +17,16 @@ public class VetoresMatricesParalelas {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        metodos m=new metodos();
+         metodos m=new metodos();
         m.ingresar();
         m.imprimir();
         System.out.println("");
+        System.out.println("Promedio general");
+        m.promedioGeneral();
+        m.imprimirPromedio();
+        System.out.println("Promedio asignaturas");
+        m.promedioMateria();
+        System.out.println("Buscar nota mayor");
+        m.notaMayor();
  }
 }
