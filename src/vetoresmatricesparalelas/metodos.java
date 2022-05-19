@@ -39,6 +39,33 @@ public class metodos {
                 }                
             }
         }
+    public void promedioGeneral(){
+            promedionotas=new double[4];
+            for (int i = 0; i < notas.length; i++) {
+                int suma=0;
+                for (int j = 0; j < notas[j].length; j++) {
+                    suma=+notas[i][j];
+                }
+                promedionotas[i]=suma/notas[i].length;
+            }
+        }
+        public void imprimirPromedio(){
+            System.out.println("El promedio de los estudiantes es:");
+            for (int i = 0; i < promedionotas.length; i++) {
+                System.out.println(estudiantes[i]+"\t"+promedionotas[i]);
+            }
+        }
+        public void promedioMateria(){     
+            for (int j = 0; j < 3; j++) {
+                double suma=0;
+                for (int i = 0; i < 4; i++) {
+                    suma=+notas[i][j];       
+                }
+                System.out.println(suma/notas.length);
+            }
+            System.out.println("");
+        } 
+        public void notaMayor()
     }
     
 
