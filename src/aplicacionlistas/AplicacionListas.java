@@ -15,6 +15,13 @@ public class AplicacionListas {
      */
     public static void main(String[] args) {
        //Lista enlazada simple 
+        System.out.println("Lista enlazada simple");
+        Lista lea=new Lista();
+        lea.insertar(1, 10);
+        lea.insertar(2, 20);
+        lea.insertar(3, 30);
+        lea.insertar(4, 40);
+        lea.mostrarLista();
        
     }
     
