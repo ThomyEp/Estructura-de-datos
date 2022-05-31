@@ -39,7 +39,7 @@ public class Lista {
             }else {
                 if(pos==cantidadNodos()+1){
                     Nodo recorrido=raiz;
-                    while(recorrido!=null){
+                    while(recorrido.sig!=null){
                         recorrido=recorrido.sig;
                     }
                     recorrido.sig=nuevo;
@@ -58,4 +58,19 @@ public class Lista {
             }  
          }      
      }
+    public void mostrarLista(){
+        Nodo recorrido=raiz;
+        while (recorrido!=null) {            
+            System.out.print(recorrido.info+"->");
+            recorrido=recorrido.sig;
+        }
+        System.out.println("");
+    }
+    public boolean vaciaLista(){
+        if(raiz==null){
+            return true;           
+        }else{
+            return false;
+        }
+    }
 }
