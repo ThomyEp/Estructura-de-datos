@@ -152,5 +152,47 @@ public class Lista {
              recorrido1.info=recorrido2.info;
              recorrido2.info=temp;
         }
-    }
+        public void ordenarLista(){
+      Nodo recorrido=raiz;
+      Nodo nuevo=new Nodo();
+      Nodo reco1;
+      Nodo reco2;
+       if(raiz==null){
+           raiz=nuevo;
+           nuevo.sig=null;
+        }
+        else{
+        reco1=raiz;
+           while (reco1!=null) {               
+               reco2=reco1.sig;
+               //El numero entrante debe ir al inicio de la lista
+               if (nuevo.info<=reco1.info) {
+                   nuevo.sig=raiz;
+                   raiz=nuevo;
+                   break;
+               }
+               else{
+                   //El numero entrante debe ir al final de la lista
+                   if (nuevo.info>reco1.info && reco2==null) {
+                       reco1.sig=nuevo;
+                       nuevo.sig=null;
+                       break;
+                   }
+                   else{
+                      //El numero entrante debe ir en la mitad de la lista
+                       if (reco1.info<nuevo.info && reco2.info>=nuevo.info) {
+                           reco1.sig=nuevo;
+                           nuevo.sig=reco2;
+                           break;
+                       }
+                       else{
+                          reco1=reco1.sig;
+                       }
+                   }
+               }
+                
+           }
+        }
+     }
+    
 }
