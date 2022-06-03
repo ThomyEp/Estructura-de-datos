@@ -50,6 +50,9 @@ public class AplicacionListas {
         int b=sc.nextInt();
         lea.intercambioElemento(a, b);
         lea.mostrarLista();
+        System.out.println("Lista Ordenada");
+        lea.ordenarLista();
+        lea.mostrarLista();
     }
        
     }
