@@ -23,8 +23,8 @@ public class ListasEnlazadas {
         //String nombre=sc.next();
         //System.out.println("Ingrese la nota");
          //float not=sc.nextFloat();
-         ml.insertarInicio(4.1,"jhony");
-         ml.insertarInicio(7.1,"Maria");
+         ml.insertarInicio(4.1,"Monica");
+         ml.insertarInicio(7.9,"Maria");
          ml.insertarInicio(5.5,"Jose");
          ml.insertarInicio(8.2,"Rita");
          ml.mostrarLista();
@@ -37,6 +37,18 @@ public class ListasEnlazadas {
          ml.insertarPosicion(7, 7.6, "Poleth");
          ml.insertarPosicion(3, 5.7, "Camila");
          ml.mostrarLista();
+         System.out.println("El nodo con la menor nota es: "+ml.menorElemento());
+         ml.borrarNodoMenor();
+         ml.mostrarLista();
+         ml.posicionEstudiante("Pepe");
+         System.out.println("Ordenar Alfabeticamente");
+         ml.ordenrAlfabeticamente();
+         ml.mostrarLista();
+         System.out.print("Ingrese la nota que desea cambiar: ");
+         double notaAnterior=sc.nextDouble();
+         ml.modificarNota(notaAnterior);
+         ml.mostrarLista();
+         ml.promedioNotas();
     }
    
 }
