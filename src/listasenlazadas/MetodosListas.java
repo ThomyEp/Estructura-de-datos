@@ -201,13 +201,18 @@ public class MetodosListas {
    public void modificarNota(double nota){
        Nodo recorrido1=new Nodo();
        recorrido1=raiz;
+       if (buscarNota(nota)==false) {
+           System.out.println("Nota:"+nota+" no existe");
+       }
+       else{
        while (recorrido1!=null) {           
            if (buscarNota(nota)==true && recorrido1.nota==nota) {
                System.out.print("Ingrese la nueva nota:");
                recorrido1.nota=sc.nextDouble();
            }
            recorrido1=recorrido1.sig;
-       }  
+           } 
+       }
    }
    public void promedioNotas(){
        Nodo recorrido=raiz;
