@@ -21,11 +21,12 @@ public class Colas {
         mc.encolarFifo("Colombia",1200);
         mc.encolarFifo("Paraguay",100);
         mc.imprimir();
+        System.out.println(" Pais con mayor poblacion");
         mc.mayorPoblacion();
-        //mc.desencolar();
-        //mc.imprimir();
-        //mc.desencolar();
-        //mc.imprimir();
+        mc.desencolar();
+        mc.imprimir();
+        mc.desencolar();
+        mc.imprimir();
     }
     
 }

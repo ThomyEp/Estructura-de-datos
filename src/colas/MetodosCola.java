@@ -82,6 +82,6 @@ public class MetodosCola {
             System.out.println("");
          }
         
-        System.out.println(a+" con su plbacion:"+mayor);
+        System.out.println(a+" con su poblacion:"+mayor);
         }
 }
