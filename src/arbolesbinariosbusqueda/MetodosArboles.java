@@ -17,6 +17,7 @@ public class MetodosArboles {
     }
     Nodo raiz;
     int altura;
+    int cantidad;
     public MetodosArboles(){
         raiz=null;
     }
@@ -85,22 +86,17 @@ public class MetodosArboles {
             retornarAltura(reco.der, nivel + 1);
         }
     }
-    public void imprimirNivel() {
-        System.out.println("-------Datos por niveles-------");
-        niveles = new String[altura + 1];
-
-        imprimirNivel(raiz, 0);
-        for (int i = 0; i < niveles.length-1; i++) {
-            System.out.println(niveles[i] + "\tEn nivel: " + i);
+    private void imprimirNivel(Nodo tmp, int nivel){
+        if(tmp !=null){
+            imprimirNivel(tmp.izq,nivel+1);
+            imprimirNivel(tmp.der,nivel+1);
+            System.out.println(tmp.info + "("+nivel+") - ");       
         }
     }
-
-    private void imprimirNivel(Nodo pivote, int nivel2) {
-        if (pivote != null) {
-            niveles[nivel2] = pivote.info + ", " + ((niveles[nivel2] != null) ? niveles[nivel2] : "");
-            imprimirNivel(pivote.der, nivel2 + 1);
-            imprimirNivel(pivote.izq, nivel2 + 1);
-        }
+ 
+    public void imprimirNivel(){
+    imprimirNivel(raiz,1);
+    System.out.println();
     }
     public void imprimePreorden(){
         System.out.println("-----Recorrido Preorden-----");
@@ -117,5 +113,81 @@ public class MetodosArboles {
         imprimirPosorden(raiz);
         System.out.println();
     }
- 
+    //Cantidad de nodos del arbol
+     private void cantidadNodos(Nodo reco){
+         if (reco!=null) {
+             cantidad++;
+             cantidadNodos(reco.der);
+             cantidadNodos(reco.izq);
+         }
+     }
+     public int cantidcaNodos(){
+         cantidad=0;
+         cantidadNodos(raiz);
+         return cantidad;
+     }
+     private void cantidadHojas(Nodo reco){
+         if (reco!=null) {
+             if ((reco.izq==null) && (reco.der==null)) {
+                 cantidad++;
+             }
+             cantidadHojas(reco.izq);
+             cantidadHojas(reco.der);
+         }
+     }
+     public int cantidadHojas(){
+         cantidad=0;
+         cantidadHojas(raiz);
+         return cantidad;
+     }
+     public void mayorDato() {
+        if (raiz != null) {
+            Nodo reco = raiz;
+            while (reco.der != null) {
+                reco = reco.der;
+            }
+            System.out.println("Mayor valor del árbol es :" + reco.info);
+        }
+    }
+    public void menorDato() {
+        if (raiz != null) {
+            Nodo reco = raiz;
+            while (reco.izq != null) {
+                reco = reco.izq;
+            }
+            System.out.println("Menor valor del árbol es :" + reco.info);
+        }
+    } 
+    public void borrarMenor(){
+        System.out.println("-----Borrar elemento menor-----");
+        if (raiz!=null) {
+            if (raiz.izq==null) {
+                raiz=raiz.der;
+            }else{
+                Nodo anterior=raiz;
+                Nodo recorrido=raiz.izq;
+                while (recorrido.izq!= null) {                    
+                    anterior=recorrido;
+                    recorrido=recorrido.izq;
+                }
+                anterior.izq=recorrido.der;
+            }
+        }
+    }
+    public void borrarMayor(){
+        System.out.println("-----Borar Mayor elemento-----");
+        if (raiz!=null) {
+            if (raiz.der==null) {
+                raiz=raiz.izq;
+            }else{
+                Nodo anterior=raiz;
+                Nodo recorrido=raiz.der;
+                while (recorrido.der!= null) {                    
+                    anterior=recorrido;
+                    recorrido=recorrido.der;
+                }
+                anterior.der=recorrido.izq;
+            }
+        }
+    }
 }

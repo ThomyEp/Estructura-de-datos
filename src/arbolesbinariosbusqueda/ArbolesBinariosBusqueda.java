@@ -21,11 +21,23 @@ public class ArbolesBinariosBusqueda {
         ma.inserta(2);
         ma.inserta(7); 
         ma.inserta(15);
+         ma.inserta(12); 
+        ma.inserta(17);
+         ma.inserta(1); 
+        ma.inserta(19);
         ma.imprimePreorden();
         ma.imprimeInorden();
         ma.imprimePosorden();
-        System.out.println("La altura del arbol es: "+ma.retornarAltura());
         ma.imprimirNivel();
+        System.out.println("La cantidad de nodos del arbol es: "+ma.cantidcaNodos());
+        System.out.println("La altura del arbol es: "+ma.retornarAltura());
+        System.out.println("La cantidad de hojas del arbol es: "+ma.retornarAltura());
+        ma.mayorDato();
+        ma.menorDato();
+        ma.borrarMenor();
+        ma.imprimeInorden();
+        ma.borrarMayor();
+        ma.imprimeInorden();
     }
     
 }
