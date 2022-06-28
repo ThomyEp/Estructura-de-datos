@@ -95,7 +95,7 @@ public class metodosAVL {
                     return subizq.buscar(x); //busca el elemento el sub arbol izq
                 } //fin if raiz>x         
             }// fin if !arbolVacio()
-            return 0; //devulve 0 si no se encontro el elemento
+            return Integer.MAX_VALUE; //devulve MAX.VALUE si no se encontro el elemento
     }//fin metodo buscar
     private double sumaArbol(){ //Metodo promedio arbol
         int suma1 = 0;

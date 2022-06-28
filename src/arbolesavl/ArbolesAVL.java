@@ -4,6 +4,7 @@
  */
 package arbolesavl;
 
+import static java.lang.Integer.MAX_VALUE;
 import java.util.Scanner;
 
 /**
@@ -36,7 +37,7 @@ public class ArbolesAVL {
         System.out.println( "\n----Buscar elemento en el arbol----" );
         System.out.print( "Ingrese dato que desea buscar en el Arbol AVL: " );
         int dato = sc.nextInt(); //ingresamos dato a buscar por teclado
-        if (arbAVL.buscar(dato)!=0) { //evaluamos si el elemeto existe en el metodo int buscar
+        if ( arbAVL.buscar( dato ) != MAX_VALUE ) { //evaluamos si el elemeto existe en el metodo int buscar
             System.out.println( "El dato " +dato+ " existe en el arbol" );
         }else{
             System.out.println( "El dato " +dato+ " no existe en el arbol" );
