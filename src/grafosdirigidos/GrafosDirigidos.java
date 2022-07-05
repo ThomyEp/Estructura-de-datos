@@ -21,7 +21,9 @@ public class GrafosDirigidos {
         int op = 0;
         metodosGrafos mg = new metodosGrafos();
         mg.ingresarDato();
-        mg.imprimirMatriz();
+        mg.imprimirMatrizA();
+        mg.grado();
+        mg.grafoConexo();
     }
     
 }
