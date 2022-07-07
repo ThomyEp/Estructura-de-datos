@@ -79,7 +79,7 @@ public class FroydWarshall {
         return caminosRecorrido;
     }//fin metodo caminosR
     
-    public  void ingresarMatrizPesos(int matrizPeso[][]){
+    public  void ingresarMatrizPesos(int matrizPeso[][]){ //metodo ingresar matriz 
         Scanner sc = new Scanner(System.in);
         System.out.println( "Ingrese la matriz de peso" );
         for (int i = 0; i < matrizPeso.length; i++) {
@@ -89,7 +89,7 @@ public class FroydWarshall {
             }
         }
     }//fin metodo ingresarMatrizPesos
-    public  void imprimirMatriz(int matrizPeso[][]){
+    public  void imprimirMatriz(int matrizPeso[][]){ //metodo imprimir maatriz
         System.out.println("-----Matriz de Pesos-----");
         System.out.println("    1  2  3  4");
         for (int i = 0; i < matrizPeso.length; i++) {
