@@ -4,18 +4,20 @@
  */
 package algoritmosgrafos;
 
+import java.util.Scanner;
 /**
  *
  * @author Usuario
  */
 public class FroydWarshall {
     //Metodos para determinar todos los camios Algoritmo de Floyd
-    public String algoritmoFroyd( long matrizPeso[][]){ // metodo para ver los caminos posibles para llegar de un punto a otro
+    public String algoritmoFroyd( int matrizPeso[][]){ // metodo para ver los caminos posibles para llegar de un punto a otro
         int vertices = matrizPeso.length; //cantidad de vertices en la matriz de peso
-        long matrizAdyacencia[][] = matrizPeso;
+        int matrizAdyacencia[][] = matrizPeso;
         String caminos[][] = new String[vertices][vertices]; // guarda todos los caminos 
         String caminosAuxiliares[][] = new String[vertices][vertices];
-        String caminosRecorrido = "", cadena = "", caminitos = "";
+        String caminosRecorrido = "";
+        String caminitos = "";
         float temporal1;
         float temporal2;
         float temporal3;
@@ -43,32 +45,29 @@ public class FroydWarshall {
                         caminos[i][j] = caminosR(i, k, caminosAuxiliares, caminosRecorrido) + (k + 1);
                     }//fin if minimo == temporal4
                 }//fin if temporal1 != temporal4
-                matrizAdyacencia[i][j] = (long) minimo; //cast
+                matrizAdyacencia[i][j] = (int) minimo; //cast
                 }//fin for 
             }//fin for i
         }//fin for k
-        //Agregamos el camino minimo a la cadena
         for (int i = 0; i < vertices; i++) {
+            int suma = 0;
+            int suma2 = 0;
             for (int j = 0; j < vertices; j++) {
-                //matriz de esos minimos
-                cadena = cadena + "[" +matrizAdyacencia[i][j]+ "]" ;
-            }// fin for j
-            cadena += "\n";
-        }//fin for i
-        for (int i = 0; i < vertices; i++) {
-            for (int j = 0; j < vertices; j++) {
-                if (matrizAdyacencia[i][j] != 1000000000) { //si el valor no es infinitp
+                if (matrizAdyacencia[i][j] != 999) { //si el valor no es infinitp 000000
                     if (i != j) {  //si no es 0
                         if (caminos[i][j].equals("")) {
-                            caminitos +=  "De (" +(i+1)+ "--->" +(j+1)+") irse por..(" +(i+1)+ ", " +(j+1)+ ")\n";
+                             suma += matrizPeso[i][j];
+                            caminitos +=  "De (" +(i+1)+ "--->" +(j+1)+") irse por..(" +(i+1)+ "," +(j+1)+ ")\tsu peso minimo es: " +suma+ "\n";
                         }else {
-                            caminitos +=  "De (" +(i+1)+ "--->" +(j+1)+") irse por..(" +(i+1)+ ", " +caminos[i][j]+ ", " +(j+1)+ ")\n";
+                            suma2 += matrizPeso[i][j];
+                            caminitos +=  "De (" +(i+1)+ "--->" +(j+1)+") irse por..(" +(i+1)+ "," +caminos[i][j]+ "," +(j+1)+ ")\tsu peso minimo es: " +suma2+ "\n";
+                            suma2 = 0;
                         }// fin if/else
                     }//fin if i != j
-                } //fin if matrizAdyacencia[i][j] != 1000000000
+                } //fin if matrizAdyacencia[i][j] != 1000
             } //fin for j
         }//fin for i
-    return "La matriz de caminos mas costos entre lso diferentes vertices es:\n" +cadena+ "\n los diferentes caminos mas cortos entre vertices son:\n" +caminitos; 
+    return  "Los diferentes caminos mas cortos entre vertices son:\n" +caminitos; 
     }//fin metodo Froyd
     public String caminosR(int i, int k, String[][] caminosAuxiliares, String caminosRecorrido){
         if (caminosAuxiliares[i][k] == "") {
@@ -80,4 +79,25 @@ public class FroydWarshall {
         return caminosRecorrido;
     }//fin metodo caminosR
     
+    public  void ingresarMatrizPesos(int matrizPeso[][]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println( "Ingrese la matriz de peso" );
+        for (int i = 0; i < matrizPeso.length; i++) {
+            for (int j = 0; j < matrizPeso[i].length; j++){
+                System.out.print( "["+(i+1)+ "] [" +(j+1)+ "]:");
+                matrizPeso[i][j] = sc.nextInt();
+            }
+        }
+    }//fin metodo ingresarMatrizPesos
+    public  void imprimirMatriz(int matrizPeso[][]){
+        System.out.println("-----Matriz de Pesos-----");
+        System.out.println("    1  2  3  4");
+        for (int i = 0; i < matrizPeso.length; i++) {
+             System.out.print( (i+1)+"  " );
+            for (int j = 0; j < matrizPeso[i].length; j++) {
+                System.out.print( "[" +matrizPeso[i][j]+ "]" );
+            }
+            System.out.println("");
+        }
+    }//fin metodo imprimir matrizPesos
 }//fin clase FroyWarshall
