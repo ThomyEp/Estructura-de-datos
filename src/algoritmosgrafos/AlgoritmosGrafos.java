@@ -30,7 +30,7 @@ public class AlgoritmosGrafos {
                                         {999, 999, 999, 0, 999, 999},
                                         {999, 999, 999, 7, 0, 3},
                                         {999, 999, 999, 2, 999, 0}};
-                    
+                    //https://lucid.app/lucidchart/366ad268-47aa-48c0-b669-d712a4ca70a7/edit?viewport_loc=-210%2C-152%2C1660%2C1236%2C0_0&invitationId=inv_d87330ab-4fe4-4555-a34b-b0124f8af46f#
                     fw.imprimirMatriz(matrizA);
                     System.out.println(fw.algoritmoFroyd(matrizA));
                     System.out.print( "Ingrese numero de nodos: ");

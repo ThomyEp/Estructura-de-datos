@@ -25,7 +25,7 @@ public class FroydWarshall {
         float minimo; //camino minimo
         for (int i = 0; i < vertices; i++) {
             for (int j = 0; j < vertices; j++) {
-                caminos[i][j] = "";  //iniciamos en blanco
+                caminos[i][j] = "";  //iniciamos en blanco el vector caminos
                 caminosAuxiliares[i][j] = "";
             }
         }//fin for i
@@ -37,7 +37,7 @@ public class FroydWarshall {
                 temporal3 = matrizAdyacencia[k][j];
                 temporal4 = temporal2 + temporal3;
                 //encontrar al minimo
-                minimo = Math.min(temporal1, temporal4);
+                minimo = Math.min(temporal1, temporal4); //toma valor minimo
                 if (temporal1 != temporal4) {
                     if (minimo == temporal4) {
                         caminosRecorrido = "";
