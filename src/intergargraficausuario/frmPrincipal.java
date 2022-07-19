@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package intergargraficausuario;
-
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Color;
 
 /**
@@ -20,8 +21,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setTitle( "Hola" ); //Cambiar nombre del programa
         this.setLocationRelativeTo(frmPrincipal.this); //centra la ventana
         this.setResizable(false);//que el jfram sea o no redimensionado
-        
     }
+    /*public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("intergargraficausuario.Imagenes/icono.png"));
+        return retValue;
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,6 +36,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnGestionarMedicamentos = new javax.swing.JButton();
@@ -45,6 +50,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Interfaz Grafica");
         setBackground(new java.awt.Color(153, 0, 255));
+        setIconImage(getIconImage());
 
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
 
@@ -63,16 +69,30 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         btnGestionarEmpleados.setText("Gestionar Empleados");
         btnGestionarEmpleados.setMaximumSize(new java.awt.Dimension(162, 34));
+        btnGestionarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEmpleadosActionPerformed(evt);
+            }
+        });
 
         btnGestionarClientes.setText("Gestionar Clientes");
-        btnGestionarClientes.setMaximumSize(new java.awt.Dimension(125, 22));
         btnGestionarClientes.setPreferredSize(new java.awt.Dimension(162, 34));
+        btnGestionarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarClientesActionPerformed(evt);
+            }
+        });
 
         btnGestionarCitas.setText("Getionar citas");
         btnGestionarCitas.setPreferredSize(new java.awt.Dimension(162, 34));
 
         btnGestionarHorarios.setText("Gestionar Horarios");
         btnGestionarHorarios.setPreferredSize(new java.awt.Dimension(162, 34));
+        btnGestionarHorarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarHorariosActionPerformed(evt);
+            }
+        });
 
         btnGestionarVentas.setText("Gestionar Ventas");
         btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 34));
@@ -111,7 +131,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGestionarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnGestionarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(7, Short.MAX_VALUE))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +153,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,6 +161,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnGestionarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarMedicamentosActionPerformed
         // TODO add your handling code here:
         new frmGestionarMedicamentos().setVisible(true);//mostrar ventana emergente gestionar medicamentos en hospital
+        
     }//GEN-LAST:event_btnGestionarMedicamentosActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -148,40 +169,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         dispose(); //cerrar el programa
     }//GEN-LAST:event_btnCerrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnGestionarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleadosActionPerformed
+        // TODO add your handling code here:
+        new frmGestionarEmpleados().setVisible(true);
+    }//GEN-LAST:event_btnGestionarEmpleadosActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmPrincipal().setVisible(true);
-            }
-        });
-    }
+    private void btnGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarClientesActionPerformed
+        // TODO add your handling code here:
+        new frmGestionarClientes().setVisible(true);
+    }//GEN-LAST:event_btnGestionarClientesActionPerformed
+
+    private void btnGestionarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarHorariosActionPerformed
+        // TODO add your handling code here:
+        new frmGestionarHorarios().setVisible(true);
+    }//GEN-LAST:event_btnGestionarHorariosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
@@ -193,5 +194,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarVentas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
