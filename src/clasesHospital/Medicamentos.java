@@ -5,11 +5,15 @@
 package clasesHospital;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.StringJoiner;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -121,4 +125,57 @@ public class Medicamentos {
            JOptionPane.showMessageDialog( null, "Error al mostrar los medicamentos del archivo" +ex.getMessage()); 
        }
    }
+   public void seleccionarMedicamentos(JTable tblMedicamentos) {
+       try {
+           int numeroFila = tblMedicamentos.getSelectedRow(); //traer los datos de la tabla
+           if (numeroFila >= 0) {
+               setCodigoMedicamento(tblMedicamentos.getValueAt(numeroFila, 0).toString());
+               setNombreMedicamento(tblMedicamentos.getValueAt(numeroFila, 1).toString());
+               setFechaElaboracion(tblMedicamentos.getValueAt(numeroFila, 2).toString());
+               setFechaCaducidad(tblMedicamentos.getValueAt(numeroFila, 3).toString());
+               setStockMedicamento(tblMedicamentos.getValueAt(numeroFila, 4).toString());
+           }
+           
+       } catch (Exception ex) {
+           JOptionPane.showMessageDialog( null, "Error al selecionar el medicamento" +ex.getMessage());
+       }
+   }//TODO -- seleccionarMedicamentos 
+   public void eliminarMedicamento(JTable tblMedicamentos, JTextField codigoMedicamento) {
+       //Eliminar la fila de la tabla
+       DefaultTableModel mt = (DefaultTableModel)tblMedicamentos.getModel();//defino tabla a trabajar con su modelo
+       for (int i = 0; i < mt.getRowCount(); i++) {
+           if (((String)mt.getValueAt(i, 0)).equals(codigoMedicamento.getText()) ) {
+               mt.removeRow(i); //removemos
+               break;
+           }
+       }
+       //limpiar el archivo
+       try {
+           PrintWriter pw = new PrintWriter( "Medicamentos.txt" );
+           pw.print( "" ); //limpia todo el archivo
+           pw.close();
+       } catch (Exception ex) {
+            JOptionPane.showMessageDialog( null, "Error al limpar el archivo medicamentos" +ex.getMessage());
+       }
+       //Insertar nuevos registros en el archivo
+       try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File( "Medicamentos.txt" )))){
+           StringJoiner joiner = new StringJoiner( ", " ); //Definir caracter con el cual voy a concatenar
+           for (int col = 0; col < tblMedicamentos.getColumnCount(); col++) { // cuantas columnas tiene mi tabla
+                joiner.add(tblMedicamentos.getColumnName(col));
+           }//TODO -- for
+           for (int filas = 0; filas < tblMedicamentos.getRowCount(); filas++) { //cuenta las filas que tiene im tabla
+               joiner = new StringJoiner( ", " );
+               for (int columnas = 0; columnas < tblMedicamentos.getColumnCount(); columnas++) {
+                   Object obj = tblMedicamentos.getValueAt(filas, columnas);
+                   String valor = obj == null ? "null" : obj.toString();
+                   joiner.add(valor);
+               }//TODO -- for columnas
+           }//TODO -- for filas
+           bw.write(joiner.toString());
+           bw.newLine();
+           JOptionPane.showMessageDialog( null, "Se elimino el registro correctamente");
+       } catch (Exception ex) {
+           JOptionPane.showMessageDialog( null, "Error en el archivo medicamentos" +ex.getMessage());
+       }
+   }//TODO -- eliminarMedicamento
 }

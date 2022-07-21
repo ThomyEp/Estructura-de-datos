@@ -4,6 +4,8 @@
  */
 package hospital;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alumnos
@@ -15,6 +17,8 @@ public class frmMedicamento extends javax.swing.JFrame {
      */
     public frmMedicamento() {
         initComponents();
+        this.setLocationRelativeTo(frmMedicamento.this);
+        this.setResizable(false);
     }
 
     /**
@@ -43,11 +47,13 @@ public class frmMedicamento extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnMostrarMedicamentos = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
+        btnSeleccionarMedicamentos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("gestionar Medicamentos");
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Gestionar Medicamentos");
@@ -93,11 +99,16 @@ public class frmMedicamento extends javax.swing.JFrame {
         btnEditar.setText("Editar");
 
         btnEliminar.setText("Eliminar");
-
-        jButton1.setText("Seleccionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnMostrarMedicamentos.setText("Mostrar");
+        btnMostrarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarMedicamentosActionPerformed(evt);
             }
         });
 
@@ -108,40 +119,38 @@ public class frmMedicamento extends javax.swing.JFrame {
             }
         });
 
+        btnSeleccionarMedicamentos.setText("Seleccionar");
+        btnSeleccionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarMedicamentosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(73, 73, 73))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGuardar)
-                                .addGap(10, 10, 10)
-                                .addComponent(btnEditar)))))
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechaElaboracionMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtFechacCaducidadMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnEliminar)))
+                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechaElaboracionMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFechacCaducidadMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -150,7 +159,7 @@ public class frmMedicamento extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(9, Short.MAX_VALUE))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -158,10 +167,23 @@ public class frmMedicamento extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCerrar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnMostrarMedicamentos)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCerrar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGuardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEliminar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addComponent(btnSeleccionarMedicamentos)))))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCodigoMedicamento, txtFechaElaboracionMedicamento, txtFechacCaducidadMedicamento, txtNombreMedicamento, txtStockMedicamento});
@@ -200,8 +222,9 @@ public class frmMedicamento extends javax.swing.JFrame {
                             .addComponent(btnEliminar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(btnCerrar))
+                            .addComponent(btnMostrarMedicamentos)
+                            .addComponent(btnCerrar)
+                            .addComponent(btnSeleccionarMedicamentos))
                         .addGap(11, 11, 11))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,26 +242,72 @@ public class frmMedicamento extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
-        cm.setCodigoMedicamento(txtCodigoMedicamento.getText());
-        cm.setNombreMedicamento(txtNombreMedicamento.getText());
-        cm.setFechaElaboracion(txtFechacCaducidadMedicamento.getText());
-        cm.setFechaCaducidad(txtFechaElaboracionMedicamento.getText());
-        cm.setStockMedicamento(txtStockMedicamento.getText());  
-        cm.guardarMedicamento();
+        boolean validar = validarCampos();
+        if(validar == true){
+            clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
+            cm.setCodigoMedicamento(txtCodigoMedicamento.getText());
+            cm.setNombreMedicamento(txtNombreMedicamento.getText());
+            cm.setFechaElaboracion(txtFechacCaducidadMedicamento.getText());
+            cm.setFechaCaducidad(txtFechaElaboracionMedicamento.getText());
+            cm.setStockMedicamento(txtStockMedicamento.getText());  
+            cm.guardarMedicamento();
+            limpiarCampos();
+        }
+        
        
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    private void limpiarCampos() {
+        txtCodigoMedicamento.setText("");
+        txtNombreMedicamento.setText("");
+        txtFechaElaboracionMedicamento.setText("");
+        txtFechacCaducidadMedicamento.setText("");
+        txtStockMedicamento.setText("");
+    }//TODO -- limpiarCampos
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private boolean validarCampos() {
+        if (txtCodigoMedicamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo código");
+            return false;
+        }else if(txtNombreMedicamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo nombre");
+            return false;
+        }else if(txtFechaElaboracionMedicamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo fecha elaboracion");
+            return false;
+        }else if(txtFechacCaducidadMedicamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo fecha caducidad");
+            return false;
+        }else if(txtStockMedicamento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo Stock");
+            return false;
+        }
+        return  true;
+    }//TODO -- validarCampos
+    private void btnMostrarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMedicamentosActionPerformed
         // TODO add your handling code here:
         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
         cm.mostrarMedicamentos(tblMedicamentos);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnMostrarMedicamentosActionPerformed
+
+    private void btnSeleccionarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarMedicamentosActionPerformed
+        // TODO add your handling code here:
+         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
+         cm.seleccionarMedicamentos(tblMedicamentos);
+         txtCodigoMedicamento.setText(cm.getCodigoMedicamento());
+         txtNombreMedicamento.setText(cm.getNombreMedicamento());
+         txtFechaElaboracionMedicamento.setText(cm.getFechaElaboracion());
+         txtFechacCaducidadMedicamento.setText(cm.getFechaCaducidad());
+         txtStockMedicamento.setText(cm.getStockMedicamento());
+    }//GEN-LAST:event_btnSeleccionarMedicamentosActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
+         cm.eliminarMedicamento(tblMedicamentos, txtCodigoMedicamento);
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,7 +349,8 @@ public class frmMedicamento extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnMostrarMedicamentos;
+    private javax.swing.JButton btnSeleccionarMedicamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
