@@ -4,6 +4,10 @@
  */
 package hospital;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,11 +19,16 @@ public class frmMedicamento extends javax.swing.JFrame {
     /**
      * Creates new form frmMedicamento
      */
+    private ImageIcon imagen;
+    private Icon icono;
     public frmMedicamento() {
         initComponents();
         this.setLocationRelativeTo(frmMedicamento.this);
         this.setResizable(false);
         btnGuardar.setEnabled(false);
+        this.pintarImagen(this.lblminimizar,"src/hospital/Imagenes/mini.png");
+        this.pintarImagen(this.lblcerrar,"src/hospital/Imagenes/cerrar.png");
+        pintarImagen(PortadaMedicamentos, "src/hospital/Imagenes/medicamentos.jpg");
     }
 
     public void habilitarBoton() {
@@ -33,6 +42,16 @@ public class frmMedicamento extends javax.swing.JFrame {
              btnGuardar.setEnabled(true);
         }
     }
+    private void pintarImagen(JLabel lbl, String ruta) {
+         this.imagen = new ImageIcon(ruta);
+         this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
+                 lbl.getWidth(), 
+                 lbl.getHeight(),
+                 Image.SCALE_DEFAULT)
+         );
+         lbl.setIcon(this.icono);//convierte imagen en icono
+         this.repaint();
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +61,15 @@ public class frmMedicamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblMedicamentos = new javax.swing.JTable();
+        btnGuardar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnMostrarMedicamentos = new javax.swing.JButton();
+        btnSeleccionarMedicamentos = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -53,66 +79,25 @@ public class frmMedicamento extends javax.swing.JFrame {
         txtFechacMedicamento = new javax.swing.JTextField();
         txtStockMedicamento = new javax.swing.JTextField();
         txtCodigoMedicamento = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblMedicamentos = new javax.swing.JTable();
-        btnGuardar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
-        btnMostrarMedicamentos = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
-        btnSeleccionarMedicamentos = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        PortadaMedicamentos = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblcerrar = new javax.swing.JLabel();
+        lblminimizar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("gestionar Medicamentos");
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(800, 550));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Gestionar Medicamentos");
-
-        jLabel2.setText("Codigo:");
-
-        jLabel3.setText("Nombre:");
-
-        jLabel4.setText("Fecha elaboracion:");
-
-        jLabel5.setText("Fecha Caducidad:");
-
-        jLabel6.setText("Stock:");
-
-        txtNombreMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNombreMedicamentoKeyReleased(evt);
-            }
-        });
-
-        txtFechaeMedicamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaeMedicamentoActionPerformed(evt);
-            }
-        });
-        txtFechaeMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtFechaeMedicamentoKeyReleased(evt);
-            }
-        });
-
-        txtFechacMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtFechacMedicamentoKeyReleased(evt);
-            }
-        });
-
-        txtStockMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtStockMedicamentoKeyReleased(evt);
-            }
-        });
-
-        txtCodigoMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCodigoMedicamentoKeyReleased(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,6 +112,8 @@ public class frmMedicamento extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblMedicamentos);
 
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 390, 159));
+
         btnGuardar.setText("Guardar");
         btnGuardar.setEnabled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +121,7 @@ public class frmMedicamento extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +129,7 @@ public class frmMedicamento extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
+        jPanel3.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +137,7 @@ public class frmMedicamento extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        jPanel3.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
 
         btnMostrarMedicamentos.setText("Mostrar");
         btnMostrarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
@@ -155,13 +145,7 @@ public class frmMedicamento extends javax.swing.JFrame {
                 btnMostrarMedicamentosActionPerformed(evt);
             }
         });
-
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
-            }
-        });
+        jPanel3.add(btnMostrarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
 
         btnSeleccionarMedicamentos.setText("Seleccionar");
         btnSeleccionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
@@ -169,97 +153,183 @@ public class frmMedicamento extends javax.swing.JFrame {
                 btnSeleccionarMedicamentosActionPerformed(evt);
             }
         });
+        jPanel3.add(btnSeleccionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 440, 90, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Nombre:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Fecha elaboración:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Fecha caducidad:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Stock:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+
+        txtNombreMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombreMedicamento.setBorder(null);
+        txtNombreMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreMedicamentoActionPerformed(evt);
+            }
+        });
+        txtNombreMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreMedicamentoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtNombreMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 97, 20));
+
+        txtFechaeMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaeMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechaeMedicamento.setBorder(null);
+        txtFechaeMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaeMedicamentoActionPerformed(evt);
+            }
+        });
+        txtFechaeMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechaeMedicamentoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtFechaeMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 97, 20));
+
+        txtFechacMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechacMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFechacMedicamento.setBorder(null);
+        txtFechacMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechacMedicamentoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtFechacMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 97, 20));
+
+        txtStockMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtStockMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtStockMedicamento.setBorder(null);
+        txtStockMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockMedicamentoActionPerformed(evt);
+            }
+        });
+        txtStockMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtStockMedicamentoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtStockMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 97, 20));
+
+        txtCodigoMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCodigoMedicamento.setBorder(null);
+        txtCodigoMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoMedicamentoActionPerformed(evt);
+            }
+        });
+        txtCodigoMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodigoMedicamentoKeyReleased(evt);
+            }
+        });
+        jPanel2.add(txtCodigoMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 97, 20));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Código:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 100, 10));
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 100, 10));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 100, 10));
+        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 100, 10));
+        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 100, 10));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 280, 230));
+
+        PortadaMedicamentos.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel3.add(PortadaMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 290, 190));
+
+        jPanel4.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel4.setForeground(new java.awt.Color(204, 204, 255));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel4MouseDragged(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel4MousePressed(evt);
+            }
+        });
+
+        lblcerrar.setBorder(new javax.swing.border.MatteBorder(null));
+        lblcerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblcerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblcerrarMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblcerrarMousePressed(evt);
+            }
+        });
+
+        lblminimizar.setBorder(new javax.swing.border.MatteBorder(null));
+        lblminimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblminimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblminimizarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(729, 729, 729)
+                .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Gestionar Medicamentos");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnGuardar)
-                                .addGap(7, 7, 7)
-                                .addComponent(btnEditar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnMostrarMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCerrar)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtFechacMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFechaeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnEliminar)
-                                    .addComponent(btnSeleccionarMedicamentos))
-                                .addGap(34, 34, 34)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)))))
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCodigoMedicamento, txtFechacMedicamento, txtFechaeMedicamento, txtNombreMedicamento, txtStockMedicamento});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFechaeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFechacMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGuardar)
-                            .addComponent(btnEditar)
-                            .addComponent(btnEliminar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnMostrarMedicamentos)
-                            .addComponent(btnCerrar)
-                            .addComponent(btnSeleccionarMedicamentos)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
         pack();
@@ -282,6 +352,7 @@ public class frmMedicamento extends javax.swing.JFrame {
             cm.guardarMedicamento();
             limpiarCampos();
             btnGuardar.setEnabled(false);
+            cm.mostrarMedicamentos(tblMedicamentos);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
     private void limpiarCampos() {
@@ -315,11 +386,6 @@ public class frmMedicamento extends javax.swing.JFrame {
        clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
        cm.mostrarMedicamentos(tblMedicamentos);
     }//GEN-LAST:event_btnMostrarMedicamentosActionPerformed
-
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnSeleccionarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarMedicamentosActionPerformed
         // TODO add your handling code here:
@@ -373,6 +439,52 @@ public class frmMedicamento extends javax.swing.JFrame {
         habilitarBoton();
     }//GEN-LAST:event_txtStockMedicamentoKeyReleased
 
+    private void lblcerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcerrarMouseClicked
+        // TODO add your handling code here:
+        int dialog = JOptionPane.YES_NO_CANCEL_OPTION;
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir", "Exist", dialog);
+        if (result == 0) {
+            System.exit(0);//cierra la ventana
+        }
+
+    }//GEN-LAST:event_lblcerrarMouseClicked
+
+    private void lblminimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblminimizarMouseClicked
+        // TODO add your handling code here:
+        this.setState(frmPrincipal.ICONIFIED);
+    }//GEN-LAST:event_lblminimizarMouseClicked
+
+    private void lblcerrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblcerrarMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblcerrarMousePressed
+
+    private void txtNombreMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMedicamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreMedicamentoActionPerformed
+
+    private void txtStockMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockMedicamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockMedicamentoActionPerformed
+
+    private void txtCodigoMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoMedicamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoMedicamentoActionPerformed
+
+    int xx;
+    int xy;
+    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel4MousePressed
+
+    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx, y-xy);
+    }//GEN-LAST:event_jPanel4MouseDragged
+
     /**
      * @param args the command line arguments
      */
@@ -410,7 +522,7 @@ public class frmMedicamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar;
+    private javax.swing.JLabel PortadaMedicamentos;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
@@ -422,7 +534,17 @@ public class frmMedicamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel lblcerrar;
+    private javax.swing.JLabel lblminimizar;
     private javax.swing.JTable tblMedicamentos;
     private javax.swing.JTextField txtCodigoMedicamento;
     private javax.swing.JTextField txtFechacMedicamento;

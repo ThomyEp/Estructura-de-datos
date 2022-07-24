@@ -44,8 +44,6 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblcerrar = new javax.swing.JLabel();
-        lblminimizar = new javax.swing.JLabel();
         lblPortada = new javax.swing.JLabel();
         panel = new javax.swing.JPanel();
         btnGestionarPacientes = new javax.swing.JButton();
@@ -56,11 +54,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnGestionarHorarios = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblcerrar = new javax.swing.JLabel();
+        lblminimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOSPITAL...");
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
+        setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,25 +71,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText(" Hospital UTE");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, -1));
-
-        lblcerrar.setBorder(new javax.swing.border.MatteBorder(null));
-        lblcerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblcerrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblcerrarMouseClicked(evt);
-            }
-        });
-        bg.add(lblcerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 40, 40));
-
-        lblminimizar.setBorder(new javax.swing.border.MatteBorder(null));
-        lblminimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lblminimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblminimizarMouseClicked(evt);
-            }
-        });
-        bg.add(lblminimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 40, 40));
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         lblPortada.setBorder(new javax.swing.border.MatteBorder(null));
         bg.add(lblPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 510, 240));
@@ -107,28 +91,28 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnGestionarPacientesActionPerformed(evt);
             }
         });
-        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 190, 39));
+        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 190, 39));
 
         btnGestionarCitas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarCitas.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarCitas.setText("Gestionar Citas");
         btnGestionarCitas.setBorder(null);
         btnGestionarCitas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 38));
+        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 190, 38));
 
         btnGestionarVentas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarVentas.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarVentas.setText("Gestionar Ventas");
         btnGestionarVentas.setBorder(null);
         btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 190, 41));
+        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, 41));
 
         btnGestionarEmpleados.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarEmpleados.setText("Gestionar Empleados");
         btnGestionarEmpleados.setBorder(null);
         btnGestionarEmpleados.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 190, 38));
+        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 190, 38));
 
         btnGestionarMedicamentos.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,15 +133,64 @@ public class frmPrincipal extends javax.swing.JFrame {
         panel.add(btnGestionarHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, 38));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/símbolo-de-la-medicina-fondo-abstracto-15695345.jpg"))); // NOI18N
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 110));
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 110));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Servicios");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 77, 30));
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 77, 30));
 
-        bg.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 550));
+        bg.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 510));
+
+        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 204, 204));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel1MousePressed(evt);
+            }
+        });
+
+        lblcerrar.setBorder(new javax.swing.border.MatteBorder(null));
+        lblcerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblcerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblcerrarMouseClicked(evt);
+            }
+        });
+
+        lblminimizar.setBorder(new javax.swing.border.MatteBorder(null));
+        lblminimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblminimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblminimizarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 720, Short.MAX_VALUE)
+                .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,6 +235,21 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void btnGestionarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPacientesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGestionarPacientesActionPerformed
+ 
+    int xx;
+    int xy;
+    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+        // TODO add your handling code here:
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx, y-xy);
+    }//GEN-LAST:event_jPanel1MouseDragged
 
     /**
      * @param args the command line arguments
@@ -246,7 +294,7 @@ public class frmPrincipal extends javax.swing.JFrame {
          );
          lbl.setIcon(this.icono);//convierte imagen en icono
          this.repaint();
-     }
+     }//Todo -- pintarImagen
 
     @Override
     public boolean isDisplayable() {
@@ -263,6 +311,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblPortada;
     private javax.swing.JLabel lblcerrar;
     private javax.swing.JLabel lblminimizar;
