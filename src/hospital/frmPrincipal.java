@@ -4,11 +4,13 @@
  */
 package hospital;
 
+import java.awt.BorderLayout;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -29,9 +31,28 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.pintarImagen(this.lblminimizar,"src/hospital/Imagenes/mini.png");
         this.pintarImagen(this.lblcerrar,"src/hospital/Imagenes/cerrar.png");
         this.pintarImagen(this.lblPortada,"src/hospital/Imagenes/portadaHospi.jpg");
+       
         
+        
+        /*Pacientes fp = new Pacientes();
+        fp.setSize(650,510);
+        fp.setLocation(0, 0);
+        
+        
+        content.removeAll();
+        content.add(fp, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+        */
     }
-   
+   private void ShowPanel(JPanel p) {
+        p.setSize(650,510);
+        p.setLocation(0, 0);
+        content.removeAll();
+        content.add(p, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+   }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,9 +63,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bg = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        lblPortada = new javax.swing.JLabel();
+        barra = new javax.swing.JPanel();
+        lblcerrar = new javax.swing.JLabel();
+        lblminimizar = new javax.swing.JLabel();
         panel = new javax.swing.JPanel();
         btnGestionarPacientes = new javax.swing.JButton();
         btnGestionarCitas = new javax.swing.JButton();
@@ -52,107 +73,28 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnGestionarEmpleados = new javax.swing.JButton();
         btnGestionarMedicamentos = new javax.swing.JButton();
         btnGestionarHorarios = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        lblcerrar = new javax.swing.JLabel();
-        lblminimizar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
+        lblPortada = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("HOSPITAL...");
         setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
+        setMinimumSize(new java.awt.Dimension(800, 550));
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setForeground(new java.awt.Color(255, 255, 255));
-        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText(" Hospital UTE");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
-
-        lblPortada.setBorder(new javax.swing.border.MatteBorder(null));
-        bg.add(lblPortada, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 510, 240));
-
-        panel.setBackground(new java.awt.Color(54, 33, 89));
-        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btnGestionarPacientes.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarPacientes.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarPacientes.setText("Gestionar Pacientes");
-        btnGestionarPacientes.setBorder(null);
-        btnGestionarPacientes.setBorderPainted(false);
-        btnGestionarPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnGestionarPacientes.setPreferredSize(new java.awt.Dimension(162, 22));
-        btnGestionarPacientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarPacientesActionPerformed(evt);
-            }
-        });
-        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 190, 39));
-
-        btnGestionarCitas.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarCitas.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarCitas.setText("Gestionar Citas");
-        btnGestionarCitas.setBorder(null);
-        btnGestionarCitas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 190, 38));
-
-        btnGestionarVentas.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarVentas.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarVentas.setText("Gestionar Ventas");
-        btnGestionarVentas.setBorder(null);
-        btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, 41));
-
-        btnGestionarEmpleados.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarEmpleados.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarEmpleados.setText("Gestionar Empleados");
-        btnGestionarEmpleados.setBorder(null);
-        btnGestionarEmpleados.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 190, 38));
-
-        btnGestionarMedicamentos.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarMedicamentos.setText("Gestionar Medicamentos");
-        btnGestionarMedicamentos.setBorder(null);
-        btnGestionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarMedicamentosActionPerformed(evt);
-            }
-        });
-        panel.add(btnGestionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 190, 39));
-
-        btnGestionarHorarios.setBackground(new java.awt.Color(85, 55, 118));
-        btnGestionarHorarios.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarHorarios.setText("Gestionar Horarios");
-        btnGestionarHorarios.setBorder(null);
-        btnGestionarHorarios.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 190, 38));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/símbolo-de-la-medicina-fondo-abstracto-15695345.jpg"))); // NOI18N
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 110));
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Servicios");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 77, 30));
-
-        bg.add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 510));
-
-        jPanel1.setBackground(new java.awt.Color(102, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 204, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        barra.setBackground(new java.awt.Color(102, 255, 255));
+        barra.setForeground(new java.awt.Color(0, 204, 204));
+        barra.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
+                barraMouseDragged(evt);
             }
         });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        barra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
+                barraMousePressed(evt);
             }
         });
 
@@ -172,36 +114,109 @@ public class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout barraLayout = new javax.swing.GroupLayout(barra);
+        barra.setLayout(barraLayout);
+        barraLayout.setHorizontalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraLayout.createSequentialGroup()
                 .addGap(0, 720, Short.MAX_VALUE)
                 .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        barraLayout.setVerticalGroup(
+            barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(barraLayout.createSequentialGroup()
+                .addGroup(barraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+        getContentPane().add(barra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+        panel.setBackground(new java.awt.Color(54, 33, 89));
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnGestionarPacientes.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarPacientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarPacientes.setText("Gestionar Pacientes");
+        btnGestionarPacientes.setBorder(null);
+        btnGestionarPacientes.setBorderPainted(false);
+        btnGestionarPacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnGestionarPacientes.setPreferredSize(new java.awt.Dimension(162, 22));
+        btnGestionarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarPacientesActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 39));
+
+        btnGestionarCitas.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarCitas.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarCitas.setText("Gestionar Citas");
+        btnGestionarCitas.setBorder(null);
+        btnGestionarCitas.setPreferredSize(new java.awt.Dimension(162, 22));
+        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 150, 38));
+
+        btnGestionarVentas.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarVentas.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarVentas.setText("Gestionar Ventas");
+        btnGestionarVentas.setBorder(null);
+        btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 22));
+        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, 41));
+
+        btnGestionarEmpleados.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarEmpleados.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarEmpleados.setText("Gestionar Empleados");
+        btnGestionarEmpleados.setBorder(null);
+        btnGestionarEmpleados.setPreferredSize(new java.awt.Dimension(162, 22));
+        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 150, 38));
+
+        btnGestionarMedicamentos.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarMedicamentos.setText("Gestionar Medicamentos");
+        btnGestionarMedicamentos.setBorder(null);
+        btnGestionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarMedicamentosActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 150, 39));
+
+        btnGestionarHorarios.setBackground(new java.awt.Color(85, 55, 118));
+        btnGestionarHorarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarHorarios.setText("Gestionar Horarios");
+        btnGestionarHorarios.setBorder(null);
+        btnGestionarHorarios.setPreferredSize(new java.awt.Dimension(162, 22));
+        panel.add(btnGestionarHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 150, 38));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText(" Hospital UTE");
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 153, 0)));
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 150, 510));
+
+        content.setForeground(new java.awt.Color(255, 255, 255));
+        content.setPreferredSize(new java.awt.Dimension(570, 320));
+
+        lblPortada.setBorder(new javax.swing.border.MatteBorder(null));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addComponent(lblPortada, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblPortada, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
+
+        getContentPane().add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 650, 510));
 
         pack();
         setLocationRelativeTo(null);
@@ -224,7 +239,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnGestionarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarMedicamentosActionPerformed
         // TODO add your handling code here:
-        new frmMedicamento().setVisible(true);
+        pnlMedicamentos pm = new pnlMedicamentos();
+        ShowPanel(pm);
  
 
         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos(); //instanciar paquete claseHospital
@@ -234,22 +250,26 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnGestionarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPacientesActionPerformed
         // TODO add your handling code here:
+        pnlPacientes pp = new pnlPacientes();
+        ShowPanel(pp);
+        clasesHospital.Pacientes cp = new clasesHospital.Pacientes(); //instanciar paquete claseHospital
+        cp.crearArchivoPacientes();
     }//GEN-LAST:event_btnGestionarPacientesActionPerformed
  
     int xx;
     int xy;
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
+    private void barraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMousePressed
         // TODO add your handling code here:
         xx = evt.getX();
         xy = evt.getY();
-    }//GEN-LAST:event_jPanel1MousePressed
+    }//GEN-LAST:event_barraMousePressed
 
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+    private void barraMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMouseDragged
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         this.setLocation(x-xx, y-xy);
-    }//GEN-LAST:event_jPanel1MouseDragged
+    }//GEN-LAST:event_barraMouseDragged
 
     /**
      * @param args the command line arguments
@@ -301,17 +321,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         return super.isDisplayable(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel bg;
+    private javax.swing.JPanel barra;
     private javax.swing.JButton btnGestionarCitas;
     private javax.swing.JButton btnGestionarEmpleados;
     private javax.swing.JButton btnGestionarHorarios;
     private javax.swing.JButton btnGestionarMedicamentos;
     private javax.swing.JButton btnGestionarPacientes;
     private javax.swing.JButton btnGestionarVentas;
+    private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblPortada;
     private javax.swing.JLabel lblcerrar;
     private javax.swing.JLabel lblminimizar;

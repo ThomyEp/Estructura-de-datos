@@ -69,11 +69,11 @@ public class Medicamentos {
     }
     public void crearArchivoMedicamentos() { //metodo para crear un archivo para medicamentos
         try {
-        File objetoArchivo = new File( "Medicamentos.txt" ); //instancia de la clase File
+        File objetoArchivo = new File( "Medicamento.txt" ); //instancia de la clase File
             if (objetoArchivo.createNewFile()) {
-                //JOptionPane.showMessageDialog( null, "Archivo" +objetoArchivo.getName()+ " creado" ); //crea el archivo
+               // JOptionPane.showMessageDialog( null, "Archivo" +objetoArchivo.getName()+ " creado" ); //crea el archivo
             }else{
-                //JOptionPane.showMessageDialog( null, "Archivo" +objetoArchivo.getName()+ " ya existe" ); //el archivo ya existe
+               // JOptionPane.showMessageDialog( null, "Archivo" +objetoArchivo.getName()+ " ya existe" ); //el archivo ya existe
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog( null, " Error al crear el archivo " );//error al crear archivo
@@ -83,7 +83,7 @@ public class Medicamentos {
     public void guardarMedicamento() {
         FileWriter fw = null;
         try {
-            fw = new FileWriter("Medicamentos.txt",true); //add , añadir , no sea solo de escritura /true
+            fw = new FileWriter("Medicamento.txt",true); //add , añadir , no sea solo de escritura /true
             fw.write(getCodigoMedicamento());
             fw.write( ", " );
             fw.write(getNombreMedicamento());
@@ -103,7 +103,7 @@ public class Medicamentos {
         
     }
     public void mostrarMedicamentos(JTable tblMedicamentos){
-         String archivoPath = "Medicamentos.txt";
+       String archivoPath = "Medicamento.txt";
        File archivo = new File(archivoPath);
        try {
            BufferedReader br = new BufferedReader(new FileReader(archivo));
@@ -153,14 +153,14 @@ public class Medicamentos {
        }
        //limpiar el archivo
        try {
-           PrintWriter pw = new PrintWriter( "Medicamentos.txt" );
+           PrintWriter pw = new PrintWriter( "Medicamento.txt" );
            pw.print( "" ); //limpia todo el archivo
            pw.close();
        } catch (Exception ex) {
             JOptionPane.showMessageDialog( null, "Error al limpar el archivo medicamentos" +ex.getMessage());
        }
        //Insertar nuevos registros en el archivo
-       try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File( "Medicamentos.txt" )))){
+       try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File( "Medicamento.txt" )))){
            StringJoiner joiner = new StringJoiner( ", " ); //Definir caracter con el cual voy a concatenar
            for (int col = 0; col < tblMedicamentos.getColumnCount(); col++) { // cuantas columnas tiene mi tabla
                 joiner.add(tblMedicamentos.getColumnName(col));
@@ -182,34 +182,45 @@ public class Medicamentos {
    }//TODO -- eliminarMedicamento
    public void editarMedicamento(JTable tblMedicamentos) {
         //limpiar el archivo
-       try {
-           PrintWriter pw = new PrintWriter( "Medicamentos.txt" );
-           pw.print( "" ); //limpia todo el archivo
-           pw.close();
-       } catch (Exception ex) {
-            JOptionPane.showMessageDialog( null, "Error al limpar el archivo medicamentos" +ex.getMessage());
+        if (celdaEditable(tblMedicamentos) != false ) {
+            try {
+                PrintWriter pw = new PrintWriter("Medicamento.txt");
+                pw.print(""); //limpia todo el archivo
+                pw.close();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al limpar el archivo medicamentos" + ex.getMessage());
+            }
+            //Insertar nuevos registros en el archivo
+            try ( BufferedWriter bw = new BufferedWriter(new FileWriter(new File("Medicamento.txt")))) {
+                StringJoiner joiner = new StringJoiner(", "); //Definir caracter con el cual voy a concatenar
+                for (int col = 0; col < tblMedicamentos.getColumnCount(); col++) { // cuantas columnas tiene mi tabla
+                    joiner.add(tblMedicamentos.getColumnName(col));
+                }//TODO -- for
+                bw.write(joiner.toString());
+                bw.newLine();
+                for (int filas = 0; filas < tblMedicamentos.getRowCount(); filas++) { //cuenta las filas que tiene im tabla
+                    joiner = new StringJoiner(", ");
+                    for (int columnas = 0; columnas < tblMedicamentos.getColumnCount(); columnas++) {
+                        Object obj = tblMedicamentos.getValueAt(filas, columnas);
+                        String valor = obj == null ? "null" : obj.toString();
+                        joiner.add(valor);
+                    }//TODO -- for columnas
+                    bw.write(joiner.toString());
+                    bw.newLine();
+                }//TODO -- for filas
+                JOptionPane.showMessageDialog(null, "Se edito el registro correctamente");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Error al editar el archivo medicamentos" + ex.getMessage());
+            }
        }
-       //Insertar nuevos registros en el archivo
-       try (BufferedWriter bw = new BufferedWriter(new FileWriter(new File( "Medicamentos.txt" )))){
-           StringJoiner joiner = new StringJoiner( ", " ); //Definir caracter con el cual voy a concatenar
-           for (int col = 0; col < tblMedicamentos.getColumnCount(); col++) { // cuantas columnas tiene mi tabla
-                joiner.add(tblMedicamentos.getColumnName(col));
-           }//TODO -- for
-           bw.write(joiner.toString());
-           bw.newLine();
-           for (int filas = 0; filas < tblMedicamentos.getRowCount(); filas++) { //cuenta las filas que tiene im tabla
-               joiner = new StringJoiner( ", " );
-               for (int columnas = 0; columnas < tblMedicamentos.getColumnCount(); columnas++) {
-                   Object obj = tblMedicamentos.getValueAt(filas, columnas);
-                   String valor = obj == null ? "null" : obj.toString();
-                   joiner.add(valor);
-               }//TODO -- for columnas
-               bw.write(joiner.toString());
-               bw.newLine();
-           }//TODO -- for filas
-           JOptionPane.showMessageDialog( null, "Se edito el registro correctamente");
-       } catch (Exception ex) {
-           JOptionPane.showMessageDialog( null, "Error al editar el archivo medicamentos" +ex.getMessage());
+      
+   }
+   public boolean celdaEditable(JTable tblMedicamentos) {
+       if (tblMedicamentos.getColumnCount() == 0 && tblMedicamentos.getColumnCount() == 1) {
+           return false;
+       }else {
+           return true;
        }
    }
+
 }
