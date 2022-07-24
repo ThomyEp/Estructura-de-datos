@@ -1,1 +1,3 @@
-123, 2341243, 2323, 251, 2124
+Codigo, Nombre medicamento, Fecha Elaboracion, Fecha Caducidad, Stock
+123, 1234123, 234, 1235, 12
+1, 1, 1, 1, 1

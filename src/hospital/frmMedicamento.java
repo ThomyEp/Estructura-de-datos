@@ -19,8 +19,20 @@ public class frmMedicamento extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(frmMedicamento.this);
         this.setResizable(false);
+        btnGuardar.setEnabled(false);
     }
 
+    public void habilitarBoton() {
+        if (!txtCodigoMedicamento.getText().isEmpty()
+              && !txtNombreMedicamento.getText().isEmpty()  
+              && !txtFechaeMedicamento.getText().isEmpty()
+              && !txtFechacMedicamento.getText().isEmpty()
+              && !txtStockMedicamento.getText().isEmpty()) {
+            btnGuardar.setEnabled(true);
+        }else {
+             btnGuardar.setEnabled(true);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,11 +49,10 @@ public class frmMedicamento extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtNombreMedicamento = new javax.swing.JTextField();
-        txtFechaElaboracionMedicamento = new javax.swing.JTextField();
-        txtFechacCaducidadMedicamento = new javax.swing.JTextField();
+        txtFechaeMedicamento = new javax.swing.JTextField();
+        txtFechacMedicamento = new javax.swing.JTextField();
         txtStockMedicamento = new javax.swing.JTextField();
         txtCodigoMedicamento = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMedicamentos = new javax.swing.JTable();
         btnGuardar = new javax.swing.JButton();
@@ -53,7 +64,7 @@ public class frmMedicamento extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("gestionar Medicamentos");
-        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 550));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Gestionar Medicamentos");
@@ -68,13 +79,40 @@ public class frmMedicamento extends javax.swing.JFrame {
 
         jLabel6.setText("Stock:");
 
-        txtFechaElaboracionMedicamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaElaboracionMedicamentoActionPerformed(evt);
+        txtNombreMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreMedicamentoKeyReleased(evt);
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/medicamentos.png"))); // NOI18N
+        txtFechaeMedicamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaeMedicamentoActionPerformed(evt);
+            }
+        });
+        txtFechaeMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechaeMedicamentoKeyReleased(evt);
+            }
+        });
+
+        txtFechacMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechacMedicamentoKeyReleased(evt);
+            }
+        });
+
+        txtStockMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtStockMedicamentoKeyReleased(evt);
+            }
+        });
+
+        txtCodigoMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodigoMedicamentoKeyReleased(evt);
+            }
+        });
 
         tblMedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +128,7 @@ public class frmMedicamento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblMedicamentos);
 
         btnGuardar.setText("Guardar");
+        btnGuardar.setEnabled(false);
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
@@ -97,6 +136,11 @@ public class frmMedicamento extends javax.swing.JFrame {
         });
 
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -132,61 +176,50 @@ public class frmMedicamento extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(73, 73, 73))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaElaboracionMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechacCaducidadMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(12, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnMostrarMedicamentos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCerrar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEditar)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEliminar))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(btnSeleccionarMedicamentos)))))
-                .addContainerGap(129, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addComponent(btnGuardar)
+                                .addGap(7, 7, 7)
+                                .addComponent(btnEditar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnMostrarMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCerrar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFechacMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnEliminar)
+                                    .addComponent(btnSeleccionarMedicamentos))
+                                .addGap(34, 34, 34)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCodigoMedicamento, txtFechaElaboracionMedicamento, txtFechacCaducidadMedicamento, txtNombreMedicamento, txtStockMedicamento});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCodigoMedicamento, txtFechacMedicamento, txtFechaeMedicamento, txtNombreMedicamento, txtStockMedicamento});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,28 +227,28 @@ public class frmMedicamento extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFechaeMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFechacMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCodigoMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(txtNombreMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFechaElaboracionMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFechacCaducidadMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtStockMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnGuardar)
                             .addComponent(btnEditar)
@@ -224,60 +257,51 @@ public class frmMedicamento extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnMostrarMedicamentos)
                             .addComponent(btnCerrar)
-                            .addComponent(btnSeleccionarMedicamentos))
-                        .addGap(11, 11, 11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(btnSeleccionarMedicamentos)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtFechaElaboracionMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaElaboracionMedicamentoActionPerformed
+    private void txtFechaeMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaeMedicamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaElaboracionMedicamentoActionPerformed
+    }//GEN-LAST:event_txtFechaeMedicamentoActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        boolean validar = validarCampos();
+         boolean validar = validarCampos();
         if(validar == true){
             clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
             cm.setCodigoMedicamento(txtCodigoMedicamento.getText());
             cm.setNombreMedicamento(txtNombreMedicamento.getText());
-            cm.setFechaElaboracion(txtFechacCaducidadMedicamento.getText());
-            cm.setFechaCaducidad(txtFechaElaboracionMedicamento.getText());
+            cm.setFechaElaboracion(txtFechaeMedicamento.getText());
+            cm.setFechaCaducidad(txtFechacMedicamento.getText());
             cm.setStockMedicamento(txtStockMedicamento.getText());  
             cm.guardarMedicamento();
             limpiarCampos();
+            btnGuardar.setEnabled(false);
         }
-        
-       
     }//GEN-LAST:event_btnGuardarActionPerformed
     private void limpiarCampos() {
         txtCodigoMedicamento.setText("");
         txtNombreMedicamento.setText("");
-        txtFechaElaboracionMedicamento.setText("");
-        txtFechacCaducidadMedicamento.setText("");
+        txtFechaeMedicamento.setText("");
+        txtFechacMedicamento.setText("");
         txtStockMedicamento.setText("");
     }//TODO -- limpiarCampos
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
-    private boolean validarCampos() {
+     private boolean validarCampos() {
         if (txtCodigoMedicamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete el campo código");
             return false;
         }else if(txtNombreMedicamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete el campo nombre");
             return false;
-        }else if(txtFechaElaboracionMedicamento.getText().equals("")) {
+        }else if(txtFechaeMedicamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete el campo fecha elaboracion");
             return false;
-        }else if(txtFechacCaducidadMedicamento.getText().equals("")) {
+        }else if(txtFechacMedicamento.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete el campo fecha caducidad");
             return false;
         }else if(txtStockMedicamento.getText().equals("")) {
@@ -288,26 +312,66 @@ public class frmMedicamento extends javax.swing.JFrame {
     }//TODO -- validarCampos
     private void btnMostrarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMedicamentosActionPerformed
         // TODO add your handling code here:
-        clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
-        cm.mostrarMedicamentos(tblMedicamentos);
+       clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
+       cm.mostrarMedicamentos(tblMedicamentos);
     }//GEN-LAST:event_btnMostrarMedicamentosActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnSeleccionarMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarMedicamentosActionPerformed
         // TODO add your handling code here:
-         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
-         cm.seleccionarMedicamentos(tblMedicamentos);
-         txtCodigoMedicamento.setText(cm.getCodigoMedicamento());
-         txtNombreMedicamento.setText(cm.getNombreMedicamento());
-         txtFechaElaboracionMedicamento.setText(cm.getFechaElaboracion());
-         txtFechacCaducidadMedicamento.setText(cm.getFechaCaducidad());
-         txtStockMedicamento.setText(cm.getStockMedicamento());
+        clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
+        cm.seleccionarMedicamentos(tblMedicamentos);
+        txtCodigoMedicamento.setText(cm.getCodigoMedicamento());
+        txtNombreMedicamento.setText(cm.getNombreMedicamento());
+        txtFechaeMedicamento.setText(cm.getFechaElaboracion());
+        txtFechacMedicamento.setText(cm.getFechaCaducidad());
+        txtStockMedicamento.setText(cm.getStockMedicamento());
     }//GEN-LAST:event_btnSeleccionarMedicamentosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos();
-         cm.eliminarMedicamento(tblMedicamentos, txtCodigoMedicamento);
+          boolean validar = validarCampos();
+        if(validar == true){
+        clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
+        cm.eliminarMedicamento(tblMedicamentos, txtCodigoMedicamento);
+        limpiarCampos();
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
+        cm.editarMedicamento(tblMedicamentos);
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void txtCodigoMedicamentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodigoMedicamentoKeyReleased
+        // TODO add your handling code here:
+         habilitarBoton();
+    }//GEN-LAST:event_txtCodigoMedicamentoKeyReleased
+
+    private void txtNombreMedicamentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreMedicamentoKeyReleased
+        // TODO add your handling code here:
+        habilitarBoton();
+    }//GEN-LAST:event_txtNombreMedicamentoKeyReleased
+
+    private void txtFechaeMedicamentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaeMedicamentoKeyReleased
+        // TODO add your handling code here:
+        habilitarBoton();
+    }//GEN-LAST:event_txtFechaeMedicamentoKeyReleased
+
+    private void txtFechacMedicamentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechacMedicamentoKeyReleased
+        // TODO add your handling code here:
+        habilitarBoton();
+    }//GEN-LAST:event_txtFechacMedicamentoKeyReleased
+
+    private void txtStockMedicamentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockMedicamentoKeyReleased
+        // TODO add your handling code here:
+        habilitarBoton();
+    }//GEN-LAST:event_txtStockMedicamentoKeyReleased
 
     /**
      * @param args the command line arguments
@@ -335,6 +399,7 @@ public class frmMedicamento extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(frmMedicamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -357,12 +422,11 @@ public class frmMedicamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblMedicamentos;
     private javax.swing.JTextField txtCodigoMedicamento;
-    private javax.swing.JTextField txtFechaElaboracionMedicamento;
-    private javax.swing.JTextField txtFechacCaducidadMedicamento;
+    private javax.swing.JTextField txtFechacMedicamento;
+    private javax.swing.JTextField txtFechaeMedicamento;
     private javax.swing.JTextField txtNombreMedicamento;
     private javax.swing.JTextField txtStockMedicamento;
     // End of variables declaration//GEN-END:variables
