@@ -1,2 +1,3 @@
-1, 1, 1, 1, 1
-12, 12, 12, 12, 12
+Cedula, Nombres, Edad, Dirección, Teléfono, Sexo, Especialidad, Fecha cita, Departamento, Descripción, Hora
+123, Thomy, 24, tumbaco, 0969485562, masculino, general, 2022/12/31, Neurología, enfermo, 15:00 pm
+12, 123, 13, 132, 132, masculino, 123, 2029/07/01, Oftalmología, 12, 131

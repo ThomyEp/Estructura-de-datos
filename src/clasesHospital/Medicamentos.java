@@ -27,6 +27,7 @@ public class Medicamentos {
     private String fechaElaboracion;
     private String fechaCaducidad;
     private String stockMedicamento;
+    private String tipo;
 
     public String getCodigoMedicamento() {
         return codigoMedicamento;
@@ -48,6 +49,10 @@ public class Medicamentos {
         return stockMedicamento;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
     public void setCodigoMedicamento(String codigoMedicamento) {
         this.codigoMedicamento = codigoMedicamento;
     }
@@ -67,6 +72,11 @@ public class Medicamentos {
     public void setStockMedicamento(String stockMedicamento) {
         this.stockMedicamento = stockMedicamento;
     }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     public void crearArchivoMedicamentos() { //metodo para crear un archivo para medicamentos
         try {
         File objetoArchivo = new File( "Medicamento.txt" ); //instancia de la clase File
@@ -93,6 +103,8 @@ public class Medicamentos {
             fw.write(getFechaCaducidad());
             fw.write( ", " );
             fw.write(getStockMedicamento());
+            fw.write( ", " );
+            fw.write(getTipo());
             fw.write( "\n" );
             fw.close();
             JOptionPane.showMessageDialog( null, "Se guardo correctamente el medicamentento" +getNombreMedicamento() );
@@ -114,6 +126,7 @@ public class Medicamentos {
            mt.addColumn( "Fecha Elaboracion" );
            mt.addColumn( "Fecha Caducidad" );
            mt.addColumn( "Stock" );
+           mt.addColumn( "Tipo" );
            tblMedicamentos.setModel(mt); // agregamos el modelo
            Object [] camposTabla = br.lines().toArray(); //todo lo de la linea en un objeto tipo vector
            for (int i = 0; i < camposTabla.length; i++) {
@@ -136,6 +149,7 @@ public class Medicamentos {
                setFechaElaboracion(tblMedicamentos.getValueAt(numeroFila, 2).toString());
                setFechaCaducidad(tblMedicamentos.getValueAt(numeroFila, 3).toString());
                setStockMedicamento(tblMedicamentos.getValueAt(numeroFila, 4).toString());
+               setTipo(tblMedicamentos.getValueAt(numeroFila, 5).toString());
            }
            
        } catch (Exception ex) {

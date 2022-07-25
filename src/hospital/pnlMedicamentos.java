@@ -4,11 +4,11 @@
  */
 package hospital;
 
+import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,12 +19,11 @@ public class pnlMedicamentos extends javax.swing.JPanel {
     /**
      * Creates new form pnlPacientes
      */
-    private ImageIcon imagen;
-    private Icon icono;
+    
     public pnlMedicamentos() {
         initComponents();
         btnGuardar.setEnabled(false);
-       // pintarImagen(portada, "src/hospital/Imagenes/medicamentos.jpg");
+        jcbTipo.setEnabled(false);
     }
     public void habilitarBoton() {
         if (!txtCodigoMedicamento.getText().isEmpty()
@@ -32,22 +31,15 @@ public class pnlMedicamentos extends javax.swing.JPanel {
               && !txtFechaeMedicamento.getText().isEmpty()
               && !txtFechacMedicamento.getText().isEmpty()
               && !txtStockMedicamento.getText().isEmpty()) {
+            jcbTipo.setEnabled(true);
             btnGuardar.setEnabled(true);
+           
         }else {
-             btnGuardar.setEnabled(true);
+            jcbTipo.setEnabled(false);
+            btnGuardar.setEnabled(false);
+             
         }
     }
-    private void pintarImagen(JLabel lbl, String ruta) {
-         this.imagen = new ImageIcon(ruta);
-         this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
-                 lbl.getWidth(), 
-                 lbl.getHeight(),
-                 Image.SCALE_DEFAULT)
-         );
-         lbl.setIcon(this.icono);//convierte imagen en icono
-         this.repaint();
-     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -57,7 +49,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        jpnDatos = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -68,16 +60,14 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         txtStockMedicamento = new javax.swing.JTextField();
         txtCodigoMedicamento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
         btnGuardar = new javax.swing.JButton();
         btnMostrarMedicamentos1 = new javax.swing.JButton();
         btnSeleccionarMedicamentos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jcbTipo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMedicamento = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -86,29 +76,29 @@ public class pnlMedicamentos extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 255, 153));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpnDatos.setBackground(new java.awt.Color(0, 153, 153));
+        jpnDatos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpnDatos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        jpnDatos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fecha elaboración:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jpnDatos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fecha caducidad:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        jpnDatos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Stock:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Tipo:");
+        jpnDatos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         txtNombreMedicamento.setBackground(new java.awt.Color(255, 255, 255));
         txtNombreMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -123,7 +113,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 txtNombreMedicamentoKeyReleased(evt);
             }
         });
-        jPanel2.add(txtNombreMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 90, 20));
+        jpnDatos.add(txtNombreMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 90, 30));
 
         txtFechaeMedicamento.setBackground(new java.awt.Color(255, 255, 255));
         txtFechaeMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -138,7 +128,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 txtFechaeMedicamentoKeyReleased(evt);
             }
         });
-        jPanel2.add(txtFechaeMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 90, 20));
+        jpnDatos.add(txtFechaeMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 90, 30));
 
         txtFechacMedicamento.setBackground(new java.awt.Color(255, 255, 255));
         txtFechacMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -148,7 +138,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 txtFechacMedicamentoKeyReleased(evt);
             }
         });
-        jPanel2.add(txtFechacMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 90, 20));
+        jpnDatos.add(txtFechacMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 90, 30));
 
         txtStockMedicamento.setBackground(new java.awt.Color(255, 255, 255));
         txtStockMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -163,7 +153,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 txtStockMedicamentoKeyReleased(evt);
             }
         });
-        jPanel2.add(txtStockMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 90, 20));
+        jpnDatos.add(txtStockMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, -1));
 
         txtCodigoMedicamento.setBackground(new java.awt.Color(255, 255, 255));
         txtCodigoMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -181,17 +171,12 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 txtCodigoMedicamentoKeyTyped(evt);
             }
         });
-        jPanel2.add(txtCodigoMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 90, 20));
+        jpnDatos.add(txtCodigoMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 90, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Código:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 90, 10));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 90, 10));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 90, 10));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 90, 10));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 90, 10));
+        jpnDatos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         btnGuardar.setBackground(new java.awt.Color(0, 204, 153));
         btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
@@ -203,7 +188,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 60, -1));
+        jpnDatos.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 60, -1));
 
         btnMostrarMedicamentos1.setBackground(new java.awt.Color(0, 204, 153));
         btnMostrarMedicamentos1.setForeground(new java.awt.Color(0, 0, 0));
@@ -214,7 +199,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 btnMostrarMedicamentos1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnMostrarMedicamentos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 50, 20));
+        jpnDatos.add(btnMostrarMedicamentos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 60, 20));
 
         btnSeleccionarMedicamentos.setBackground(new java.awt.Color(0, 204, 153));
         btnSeleccionarMedicamentos.setForeground(new java.awt.Color(0, 0, 0));
@@ -225,7 +210,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 btnSeleccionarMedicamentosActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSeleccionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 80, -1));
+        jpnDatos.add(btnSeleccionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 80, -1));
 
         btnEliminar.setBackground(new java.awt.Color(0, 204, 153));
         btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
@@ -236,7 +221,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 btnEliminarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 60, -1));
+        jpnDatos.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 60, -1));
 
         btnEditar.setBackground(new java.awt.Color(0, 204, 153));
         btnEditar.setForeground(new java.awt.Color(0, 0, 0));
@@ -247,19 +232,31 @@ public class pnlMedicamentos extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 60, -1));
+        jpnDatos.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 60, -1));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 270));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Stock:");
+        jpnDatos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+
+        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "jarabe", "pastillas", "inyección", "Inalables" }));
+        jpnDatos.add(jcbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 90, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/xs.jpg"))); // NOI18N
+        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpnDatos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 450));
+
+        add(jpnDatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 280, 450));
 
         tblMedicamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombres", "Fecha Ela.", "Fecha. Cad.", "Stock"
+                "Codigo", "Nombres", "Fecha Ela.", "Fecha. Cad.", "Stock", "Tipo"
             }
         ));
         jScrollPane1.setViewportView(tblMedicamento);
@@ -272,7 +269,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         portada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/medicamentos.jpg"))); // NOI18N
-        add(portada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 250, 160));
+        add(portada, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 250, 160));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/fondoMedi.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -335,8 +332,10 @@ public class pnlMedicamentos extends javax.swing.JPanel {
             cm.setFechaElaboracion(txtFechaeMedicamento.getText());
             cm.setFechaCaducidad(txtFechacMedicamento.getText());
             cm.setStockMedicamento(txtStockMedicamento.getText());
+            cm.setTipo(jcbTipo.getSelectedItem().toString());
             cm.guardarMedicamento();
             limpiarCampos();
+            jcbTipo.setEnabled(false);
             btnGuardar.setEnabled(false);
             cm.mostrarMedicamentos(tblMedicamento);
         }
@@ -381,6 +380,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
             clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
             cm.eliminarMedicamento(tblMedicamento, txtCodigoMedicamento);
             limpiarCampos();
+            habilitarBoton();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -388,11 +388,14 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         // TODO add your handling code here:
         clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
         cm.seleccionarMedicamentos(tblMedicamento);
+        btnGuardar.setEnabled(false);
         txtCodigoMedicamento.setText(cm.getCodigoMedicamento());
         txtNombreMedicamento.setText(cm.getNombreMedicamento());
         txtFechaeMedicamento.setText(cm.getFechaElaboracion());
         txtFechacMedicamento.setText(cm.getFechaCaducidad());
         txtStockMedicamento.setText(cm.getStockMedicamento());
+        jcbTipo.setEnabled(true);
+        jcbTipo.setSelectedItem(cm.getTipo());
     }//GEN-LAST:event_btnSeleccionarMedicamentosActionPerformed
 
     private void btnMostrarMedicamentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMedicamentos1ActionPerformed
@@ -400,7 +403,6 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         clasesHospital.Medicamentos cm=new clasesHospital.Medicamentos();
         cm.mostrarMedicamentos(tblMedicamento);
     }//GEN-LAST:event_btnMostrarMedicamentos1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
@@ -415,13 +417,11 @@ public class pnlMedicamentos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JComboBox<String> jcbTipo;
+    private javax.swing.JPanel jpnDatos;
     private javax.swing.JLabel portada;
     private javax.swing.JTable tblMedicamento;
     private javax.swing.JTextField txtCodigoMedicamento;
@@ -431,3 +431,5 @@ public class pnlMedicamentos extends javax.swing.JPanel {
     private javax.swing.JTextField txtStockMedicamento;
     // End of variables declaration//GEN-END:variables
 }
+
+        

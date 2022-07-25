@@ -30,20 +30,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         this.pintarImagen(this.lblminimizar,"src/hospital/Imagenes/mini.png");
         this.pintarImagen(this.lblcerrar,"src/hospital/Imagenes/cerrar.png");
-        this.pintarImagen(this.lblPortada,"src/hospital/Imagenes/portadaHospi.jpg");
-       
-        
-        
-        /*Pacientes fp = new Pacientes();
-        fp.setSize(650,510);
-        fp.setLocation(0, 0);
-        
-        
-        content.removeAll();
-        content.add(fp, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-        */
+        this.pintarImagen(this.lblPortada,"src/hospital/Imagenes/portadaHospi.jpg");          
     }
    private void ShowPanel(JPanel p) {
         p.setSize(650,510);
@@ -121,6 +108,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, barraLayout.createSequentialGroup()
                 .addGap(0, 720, Short.MAX_VALUE)
                 .addComponent(lblminimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(lblcerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         barraLayout.setVerticalGroup(
@@ -149,28 +137,33 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnGestionarPacientesActionPerformed(evt);
             }
         });
-        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 150, 39));
+        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 150, 39));
 
         btnGestionarCitas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarCitas.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarCitas.setText("Gestionar Citas");
         btnGestionarCitas.setBorder(null);
         btnGestionarCitas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 150, 38));
+        btnGestionarCitas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarCitasActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 150, 38));
 
         btnGestionarVentas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarVentas.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarVentas.setText("Gestionar Ventas");
         btnGestionarVentas.setBorder(null);
         btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, 41));
+        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 150, 41));
 
         btnGestionarEmpleados.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarEmpleados.setText("Gestionar Empleados");
         btnGestionarEmpleados.setBorder(null);
         btnGestionarEmpleados.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 150, 38));
+        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 150, 38));
 
         btnGestionarMedicamentos.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,7 +238,6 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         clasesHospital.Medicamentos cm = new clasesHospital.Medicamentos(); //instanciar paquete claseHospital
         cm.crearArchivoMedicamentos();
-        //cm.guardarMedicamento();
     }//GEN-LAST:event_btnGestionarMedicamentosActionPerformed
 
     private void btnGestionarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPacientesActionPerformed
@@ -270,6 +262,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         int y = evt.getYOnScreen();
         this.setLocation(x-xx, y-xy);
     }//GEN-LAST:event_barraMouseDragged
+
+    private void btnGestionarCitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarCitasActionPerformed
+        // TODO add your handling code here:
+        pnlCitas pc = new pnlCitas();
+        ShowPanel(pc);
+    }//GEN-LAST:event_btnGestionarCitasActionPerformed
 
     /**
      * @param args the command line arguments

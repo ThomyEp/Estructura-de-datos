@@ -1,0 +1,4 @@
+1727439737, thomy, 24, tumbaco, 0969485562, masculino, general, 2022/10/31, Cardiología, chequeo, 12:00 pm
+123, Thomy, 24, tumbaco, 0969485562, masculino, general, 2022/12/31, Neurología, enfermo, 15:00 pm
+12, 123, 13, 132, 132, masculino, 123, 2022/07/01, Oftalmología, 12, 131
+12, 12, 12, 12, 12, femenino, 12, 2022/07/12, Oftalmología, 12, 12

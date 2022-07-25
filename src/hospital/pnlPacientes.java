@@ -64,6 +64,7 @@ public class pnlPacientes extends javax.swing.JPanel {
         btnSeleccionarMedicamentos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jlbPanelx = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPacientes = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -233,6 +234,7 @@ public class pnlPacientes extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 60, -1));
+        jPanel2.add(jlbPanelx, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 260, 210));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 220));
 
@@ -404,6 +406,7 @@ public class pnlPacientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel jlbPanelx;
     private javax.swing.JTable tblPacientes;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;

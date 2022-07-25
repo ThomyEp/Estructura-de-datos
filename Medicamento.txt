@@ -1,5 +1,5 @@
-1, 1, 1, 11, 1
-1, 1, 1, 1, 1
-123, 123, 123, 123, 123
-1, 1, 1, 1, 1
-1, 1, 1, 1, 1
+Codigo, Nombre medicamento, Fecha Elaboracion, Fecha Caducidad, Stock, Tipo
+d, d, d, d, d, pastillas
+1, 2, 3, 4, 5, pastillas
+2, 2, 2, 2, 2, Inalables
+ttt, 2, 3, 4, 5, Inalables
