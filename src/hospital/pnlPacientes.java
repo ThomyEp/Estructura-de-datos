@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package hospital;
-
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +16,10 @@ public class pnlPacientes extends javax.swing.JPanel {
      */
     public pnlPacientes() {
         initComponents();
+        jcbxCita.setEnabled(false);
+        jcbSangres.setEnabled(false);
+        jckMasculino.setEnabled(false);
+        jckFemenino.setEnabled(false); 
         btnGuardar.setEnabled(false);
     }
     public void habilitarBoton() {
@@ -28,10 +27,23 @@ public class pnlPacientes extends javax.swing.JPanel {
               && !txtNombres.getText().isEmpty()  
               && !txtDireccion.getText().isEmpty()
               && !txtTelefono.getText().isEmpty()
-              && !txtSexo.getText().isEmpty()) {
+              && !txtEstadoPaciente.getText().isEmpty()
+              ) {
+            jcbxCita.setEnabled(true);
+            jcbSangres.setEnabled(true);
+            jckMasculino.setEnabled(true);
+            jckFemenino.setEnabled(true);       
             btnGuardar.setEnabled(true);
         }else {
-             btnGuardar.setEnabled(true);
+            jcbxCita.setEnabled(false);
+            jcbxCita.setSelectedIndex(0);
+            jcbSangres.setEnabled(false);
+            jcbSangres.setSelectedIndex(0);
+            jckMasculino.setEnabled(false);
+            jckMasculino.setSelected(false);
+            jckFemenino.setEnabled(false);
+            jckFemenino.setSelected(false);
+            btnGuardar.setEnabled(false);
         }
     }
     /**
@@ -43,6 +55,7 @@ public class pnlPacientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngSexo = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,25 +64,28 @@ public class pnlPacientes extends javax.swing.JPanel {
         txtNombres = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
-        txtCedula = new javax.swing.JTextField();
+        txtEstadoPaciente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
         btnMostrarMedicamentos1 = new javax.swing.JButton();
         btnSeleccionarMedicamentos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jckMasculino = new javax.swing.JCheckBox();
+        jckFemenino = new javax.swing.JCheckBox();
+        jcbSangres = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jcbxCita = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
         jlbPanelx = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPacientes = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 255, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 153));
@@ -77,26 +93,26 @@ public class pnlPacientes extends javax.swing.JPanel {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombres:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dirección:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Teléfono:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, -1));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Estado paciente");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Sexo:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 20));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, -1, 20));
 
-        txtNombres.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombres.setBackground(new java.awt.Color(204, 255, 204));
         txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombres.setBorder(null);
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
@@ -109,9 +125,9 @@ public class pnlPacientes extends javax.swing.JPanel {
                 txtNombresKeyReleased(evt);
             }
         });
-        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 160, 20));
+        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, 20));
 
-        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setBackground(new java.awt.Color(204, 255, 204));
         txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtDireccion.setBorder(null);
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -124,9 +140,9 @@ public class pnlPacientes extends javax.swing.JPanel {
                 txtDireccionKeyReleased(evt);
             }
         });
-        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 160, 20));
+        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 160, 20));
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setBackground(new java.awt.Color(204, 255, 204));
         txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtTelefono.setBorder(null);
         txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -134,24 +150,147 @@ public class pnlPacientes extends javax.swing.JPanel {
                 txtTelefonoKeyReleased(evt);
             }
         });
-        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 160, 20));
+        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 160, 20));
 
-        txtSexo.setBackground(new java.awt.Color(255, 255, 255));
-        txtSexo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        txtSexo.setBorder(null);
-        txtSexo.addActionListener(new java.awt.event.ActionListener() {
+        txtEstadoPaciente.setBackground(new java.awt.Color(204, 255, 204));
+        txtEstadoPaciente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtEstadoPaciente.setBorder(null);
+        txtEstadoPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSexoActionPerformed(evt);
+                txtEstadoPacienteActionPerformed(evt);
             }
         });
-        txtSexo.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEstadoPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSexoKeyReleased(evt);
+                txtEstadoPacienteKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEstadoPacienteKeyTyped(evt);
             }
         });
-        jPanel2.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 160, 20));
+        jPanel2.add(txtEstadoPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 250, 20));
 
-        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Sitio de atención:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+
+        jLabel10.setBackground(new java.awt.Color(255, 153, 153));
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Datos paciente");
+        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 230, 50));
+
+        btnGuardar.setBackground(new java.awt.Color(0, 204, 153));
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
+        btnGuardar.setText("Guardar");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnGuardar.setEnabled(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 60, -1));
+
+        btnMostrarMedicamentos1.setBackground(new java.awt.Color(0, 204, 153));
+        btnMostrarMedicamentos1.setForeground(new java.awt.Color(0, 0, 0));
+        btnMostrarMedicamentos1.setText("Mostrar");
+        btnMostrarMedicamentos1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMostrarMedicamentos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarMedicamentos1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnMostrarMedicamentos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 50, 20));
+
+        btnSeleccionarMedicamentos.setBackground(new java.awt.Color(0, 204, 153));
+        btnSeleccionarMedicamentos.setForeground(new java.awt.Color(0, 0, 0));
+        btnSeleccionarMedicamentos.setText("Seleccionar");
+        btnSeleccionarMedicamentos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSeleccionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarMedicamentosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSeleccionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 80, -1));
+
+        btnEliminar.setBackground(new java.awt.Color(0, 204, 153));
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 60, -1));
+
+        btnEditar.setBackground(new java.awt.Color(0, 204, 153));
+        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEditar.setText("Editar");
+        btnEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 60, -1));
+
+        btngSexo.add(jckMasculino);
+        jckMasculino.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jckMasculino.setForeground(new java.awt.Color(0, 0, 0));
+        jckMasculino.setText("Masculino");
+        jckMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jckMasculinoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jckMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
+
+        btngSexo.add(jckFemenino);
+        jckFemenino.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jckFemenino.setForeground(new java.awt.Color(0, 0, 0));
+        jckFemenino.setText("Femenino");
+        jPanel2.add(jckFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, -1, -1));
+
+        jcbSangres.setBackground(new java.awt.Color(204, 255, 204));
+        jcbSangres.setForeground(new java.awt.Color(0, 0, 0));
+        jcbSangres.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "(A+)", "(A-)", "(B+)", "(B-)", "(AB+)", "(AB-)", "(O+)", "(O-)" }));
+        jcbSangres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbSangresActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcbSangres, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 100, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Cedula:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
+
+        jcbxCita.setBackground(new java.awt.Color(204, 255, 204));
+        jcbxCita.setForeground(new java.awt.Color(0, 0, 0));
+        jcbxCita.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "quirófano", "emergencia", "laboratorio", "pediatría", "obstetricía", "maternidad", "radiología", "consulta ", "sala de recuperación" }));
+        jcbxCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbxCitaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcbxCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 100, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Tipo de Sangre:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Teléfono:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, -1));
+
+        txtCedula.setBackground(new java.awt.Color(204, 255, 204));
         txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtCedula.setBorder(null);
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
@@ -167,100 +306,33 @@ public class pnlPacientes extends javax.swing.JPanel {
                 txtCedulaKeyTyped(evt);
             }
         });
-        jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 160, 20));
+        jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 160, 20));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Cedula:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
-        jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 160, 10));
-        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 160, 10));
-        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 160, 10));
-        jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 160, 10));
-        jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 160, 10));
+        jlbPanelx.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/dsd.jpg"))); // NOI18N
+        jPanel2.add(jlbPanelx, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 260));
 
-        btnGuardar.setBackground(new java.awt.Color(0, 204, 153));
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        btnGuardar.setText("Guardar");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnGuardar.setEnabled(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 60, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 650, 260));
 
-        btnMostrarMedicamentos1.setBackground(new java.awt.Color(0, 204, 153));
-        btnMostrarMedicamentos1.setForeground(new java.awt.Color(0, 0, 0));
-        btnMostrarMedicamentos1.setText("Mostrar");
-        btnMostrarMedicamentos1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnMostrarMedicamentos1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarMedicamentos1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnMostrarMedicamentos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 50, 20));
-
-        btnSeleccionarMedicamentos.setBackground(new java.awt.Color(0, 204, 153));
-        btnSeleccionarMedicamentos.setForeground(new java.awt.Color(0, 0, 0));
-        btnSeleccionarMedicamentos.setText("Seleccionar");
-        btnSeleccionarMedicamentos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSeleccionarMedicamentos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarMedicamentosActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSeleccionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 80, -1));
-
-        btnEliminar.setBackground(new java.awt.Color(0, 204, 153));
-        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 60, -1));
-
-        btnEditar.setBackground(new java.awt.Color(0, 204, 153));
-        btnEditar.setForeground(new java.awt.Color(0, 0, 0));
-        btnEditar.setText("Editar");
-        btnEditar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 60, -1));
-        jPanel2.add(jlbPanelx, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 6, 260, 210));
-
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 220));
-
+        tblPacientes.setBackground(new java.awt.Color(153, 204, 255));
         tblPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombres", "Dirección", "Teléfono", "Sexo"
+                "Cedula", "Nombres", "Dirección", "Teléfono", "Sexo", "Tipo sangre", "Sitio atención", "Estado paciente"
             }
         ));
         jScrollPane1.setViewportView(tblPacientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 270, 210));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 650, 210));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Gestionar Pacientes");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/fpaa.jpg"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 510));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
@@ -286,28 +358,19 @@ public class pnlPacientes extends javax.swing.JPanel {
         habilitarBoton();
     }//GEN-LAST:event_txtTelefonoKeyReleased
 
-    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
+    private void txtEstadoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoPacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSexoActionPerformed
+    }//GEN-LAST:event_txtEstadoPacienteActionPerformed
 
-    private void txtSexoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSexoKeyReleased
-        // TODO add your handling code here:
-        habilitarBoton();
-    }//GEN-LAST:event_txtSexoKeyReleased
-
-    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCedulaActionPerformed
-
-    private void txtCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyReleased
+    private void txtEstadoPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoPacienteKeyReleased
         // TODO add your handling code here:
         habilitarBoton();
-    }//GEN-LAST:event_txtCedulaKeyReleased
+    }//GEN-LAST:event_txtEstadoPacienteKeyReleased
 
-    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+    private void txtEstadoPacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoPacienteKeyTyped
         // TODO add your handling code here:
         //se activa cuando se escribe
-    }//GEN-LAST:event_txtCedulaKeyTyped
+    }//GEN-LAST:event_txtEstadoPacienteKeyTyped
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
@@ -318,36 +381,55 @@ public class pnlPacientes extends javax.swing.JPanel {
             cp.setNombres(txtNombres.getText());
             cp.setDireccion(txtDireccion.getText());
             cp.setTelefono(txtTelefono.getText());
-            cp.setSexo(txtSexo.getText());
-            cp.guardarPacientes();
+            cp.setSexo(validarSeleccion());
+            cp.setTipoSangre(jcbSangres.getSelectedItem().toString());
+            cp.setCita(jcbxCita.getSelectedItem().toString());
+            cp.setEstadoPaciente(txtEstadoPaciente.getText());
+            cp.guardarPacientes(); 
             limpiarCampos();
-            btnGuardar.setEnabled(false);
+            
             cp.mostrarPacientes(tblPacientes);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+   
+    private String validarSeleccion() {
+        String seleccion = "";
+        if (jckMasculino.isSelected()) {
+            seleccion = "Masculino";
+            return seleccion;
+        }
+        if (jckFemenino.isSelected()) {
+            seleccion = "Femenino";
+            return seleccion;
+        }
+        return seleccion;
+    }
      private void limpiarCampos() {
         txtCedula.setText("");
         txtNombres.setText("");
         txtDireccion.setText("");
         txtTelefono.setText("");
-        txtSexo.setText("");
+        txtEstadoPaciente.setText("");
+        btngSexo.clearSelection();
+        habilitarBoton();
+        
+        
     }//TODO -- limpiarCampos
      private boolean validarCampos() {
         if (txtCedula.getText().equals("")) {
-            JOptionPane.showMessageDialog(null,"Complete el campo código");
+            JOptionPane.showMessageDialog(null,"Complete el campo cedula");
             return false;
         }else if(txtNombres.getText().equals("")) {
             JOptionPane.showMessageDialog(null,"Complete el campo nombre");
             return false;
         }else if(txtDireccion.getText().equals("")) {
-            JOptionPane.showMessageDialog(null,"Complete el campo fecha elaboracion");
+            JOptionPane.showMessageDialog(null,"Complete el campo direccción");
             return false;
         }else if(txtTelefono.getText().equals("")) {
-            JOptionPane.showMessageDialog(null,"Complete el campo fecha caducidad");
+            JOptionPane.showMessageDialog(null,"Complete el campo telefono");
             return false;
-        }else if(txtSexo.getText().equals("")) {
-            JOptionPane.showMessageDialog(null,"Complete el campo Stock");
+        }else if(txtEstadoPaciente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null,"Complete el campo estado paciente");
             return false;
         }
         return  true;
@@ -363,7 +445,7 @@ public class pnlPacientes extends javax.swing.JPanel {
         boolean validar = validarCampos();
         if(validar == true){
             clasesHospital.Pacientes cp=new clasesHospital.Pacientes();
-            cp.eliminarPaciente(tblPacientes, txtCedula);
+            cp.eliminarPaciente(tblPacientes, txtEstadoPaciente);
             limpiarCampos();
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -376,7 +458,10 @@ public class pnlPacientes extends javax.swing.JPanel {
         txtNombres.setText(cp.getNombres());
         txtDireccion.setText(cp.getDireccion());
         txtTelefono.setText(cp.getTelefono());
-        txtSexo.setText(cp.getSexo());
+        jcbxCita.setSelectedItem(cp.getCita());
+        jcbSangres.setSelectedItem(cp.getTipoSangre());
+        txtEstadoPaciente.setText(cp.getTelefono());    
+        habilitarBoton();
     }//GEN-LAST:event_btnSeleccionarMedicamentosActionPerformed
 
     private void btnMostrarMedicamentos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMedicamentos1ActionPerformed
@@ -385,6 +470,30 @@ public class pnlPacientes extends javax.swing.JPanel {
         cp.mostrarPacientes(tblPacientes);
     }//GEN-LAST:event_btnMostrarMedicamentos1ActionPerformed
 
+    private void jcbSangresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSangresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbSangresActionPerformed
+
+    private void jckMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jckMasculinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jckMasculinoActionPerformed
+
+    private void jcbxCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbxCitaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbxCitaActionPerformed
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void txtCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaKeyReleased
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
@@ -392,26 +501,29 @@ public class pnlPacientes extends javax.swing.JPanel {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnMostrarMedicamentos1;
     private javax.swing.JButton btnSeleccionarMedicamentos;
+    private javax.swing.ButtonGroup btngSexo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JComboBox<String> jcbSangres;
+    private javax.swing.JComboBox<String> jcbxCita;
+    private javax.swing.JCheckBox jckFemenino;
+    private javax.swing.JCheckBox jckMasculino;
     private javax.swing.JLabel jlbPanelx;
     private javax.swing.JTable tblPacientes;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtEstadoPaciente;
     private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtSexo;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,0 +1,2 @@
+Medicamento, Cantidad, subtotal, Remitente, Codigo medicamento, Fecha venta, Total12, 12, 12, 12, Tableta, 2022/07/01, 123, 12
+|12, 12w3, 123, 123, Inyectable, 2022/07/13, 13123, 123

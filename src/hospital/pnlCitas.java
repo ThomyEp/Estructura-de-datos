@@ -19,6 +19,7 @@ public class pnlCitas extends javax.swing.JPanel {
      */
     public pnlCitas() {
         initComponents();
+        
         btnGuardar.setEnabled(false);
         jcbDepartamento.setEnabled(false);
         jcbSexo.setEnabled(false);
@@ -31,7 +32,6 @@ public class pnlCitas extends javax.swing.JPanel {
               && !txtEdad.getText().isEmpty()  
               && !txtDireccion.getText().isEmpty()
               && !txtEspecialidad.getText().isEmpty()
-              && !txtEspecialidad.getText().isEmpty()
               && !txtDescripcion.getText().isEmpty()
               && !txtHora.getText().isEmpty()) {
             jcbDepartamento.setEnabled(true);
@@ -40,7 +40,9 @@ public class pnlCitas extends javax.swing.JPanel {
             btnGuardar.setEnabled(true);
         }else {
             jcbDepartamento.setEnabled(false);
+            jcbDepartamento.setSelectedIndex(0);
             jcbSexo.setEnabled(false);
+            jcbSexo.setSelectedIndex(0);
             jdcFechaCita.setEnabled(false);
             btnGuardar.setEnabled(false);
         }
@@ -64,10 +66,6 @@ public class pnlCitas extends javax.swing.JPanel {
         txtEspecialidad = new javax.swing.JTextField();
         txtCedula = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
         btnGuardar = new javax.swing.JButton();
         btnMostrarCita = new javax.swing.JButton();
         btnSeleccionarCitas = new javax.swing.JButton();
@@ -77,24 +75,21 @@ public class pnlCitas extends javax.swing.JPanel {
         jblFechaCita1 = new javax.swing.JLabel();
         jblFechaCita2 = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         txtNombres = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
-        jSeparator8 = new javax.swing.JSeparator();
         jblFechaCita3 = new javax.swing.JLabel();
         txtHora = new javax.swing.JTextField();
-        jSeparator9 = new javax.swing.JSeparator();
         jcbDepartamento = new javax.swing.JComboBox<>();
         jblFechaCita4 = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         jdcFechaCita = new com.toedter.calendar.JDateChooser();
         jcbSexo = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCitas = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelCitas.setBackground(new java.awt.Color(0, 255, 153));
@@ -102,26 +97,26 @@ public class pnlCitas extends javax.swing.JPanel {
         panelCitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombres:");
         panelCitas.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Dirección:");
-        panelCitas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        panelCitas.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Edad:");
         panelCitas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 80, -1));
 
         jblFechaCita.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jblFechaCita.setForeground(new java.awt.Color(0, 0, 0));
+        jblFechaCita.setForeground(new java.awt.Color(255, 255, 255));
         jblFechaCita.setText("Hora:");
-        panelCitas.add(jblFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 50, 20));
+        panelCitas.add(jblFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 50, 20));
 
-        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdad.setBackground(new java.awt.Color(204, 255, 204));
         txtEdad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEdad.setBorder(null);
         txtEdad.addActionListener(new java.awt.event.ActionListener() {
@@ -134,9 +129,9 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtEdadKeyReleased(evt);
             }
         });
-        panelCitas.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 160, 20));
+        panelCitas.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 160, 20));
 
-        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setBackground(new java.awt.Color(204, 255, 204));
         txtDireccion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDireccion.setBorder(null);
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
@@ -149,9 +144,9 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtDireccionKeyReleased(evt);
             }
         });
-        panelCitas.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 160, 20));
+        panelCitas.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 160, 20));
 
-        txtEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEspecialidad.setBackground(new java.awt.Color(204, 255, 204));
         txtEspecialidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtEspecialidad.setBorder(null);
         txtEspecialidad.addActionListener(new java.awt.event.ActionListener() {
@@ -164,9 +159,9 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtEspecialidadKeyReleased(evt);
             }
         });
-        panelCitas.add(txtEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 150, 20));
+        panelCitas.add(txtEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 150, 20));
 
-        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        txtCedula.setBackground(new java.awt.Color(204, 255, 204));
         txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCedula.setBorder(null);
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
@@ -182,16 +177,12 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtCedulaKeyTyped(evt);
             }
         });
-        panelCitas.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 160, 20));
+        panelCitas.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 160, 20));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cedula:");
         panelCitas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
-        panelCitas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 160, 10));
-        panelCitas.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 160, 10));
-        panelCitas.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, 160, 10));
-        panelCitas.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 150, 10));
 
         btnGuardar.setBackground(new java.awt.Color(0, 204, 153));
         btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
@@ -250,21 +241,22 @@ public class pnlCitas extends javax.swing.JPanel {
         panelCitas.add(btnEditarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 60, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Sexo:");
-        panelCitas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, 20));
+        panelCitas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, 20));
 
         jblFechaCita1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jblFechaCita1.setForeground(new java.awt.Color(0, 0, 0));
+        jblFechaCita1.setForeground(new java.awt.Color(255, 255, 255));
         jblFechaCita1.setText("Fecha de cita:");
-        panelCitas.add(jblFechaCita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 110, 20));
+        panelCitas.add(jblFechaCita1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 110, 20));
 
+        jblFechaCita2.setBackground(new java.awt.Color(255, 255, 255));
         jblFechaCita2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jblFechaCita2.setForeground(new java.awt.Color(0, 0, 0));
+        jblFechaCita2.setForeground(new java.awt.Color(255, 255, 255));
         jblFechaCita2.setText("Departamento:");
-        panelCitas.add(jblFechaCita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 130, 20));
+        panelCitas.add(jblFechaCita2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 130, 20));
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setBackground(new java.awt.Color(204, 255, 204));
         txtTelefono.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTelefono.setBorder(null);
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -277,15 +269,14 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtTelefonoKeyReleased(evt);
             }
         });
-        panelCitas.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 160, 20));
-        panelCitas.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 160, 10));
+        panelCitas.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 160, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Teléfono:");
-        panelCitas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 80, -1));
+        panelCitas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, -1));
 
-        txtNombres.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombres.setBackground(new java.awt.Color(204, 255, 204));
         txtNombres.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNombres.setBorder(null);
         txtNombres.addActionListener(new java.awt.event.ActionListener() {
@@ -298,16 +289,14 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtNombresKeyReleased(evt);
             }
         });
-        panelCitas.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 160, 20));
-        panelCitas.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 160, 10));
-        panelCitas.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 630, -1));
+        panelCitas.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 160, 20));
 
         jblFechaCita3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jblFechaCita3.setForeground(new java.awt.Color(0, 0, 0));
+        jblFechaCita3.setForeground(new java.awt.Color(255, 255, 255));
         jblFechaCita3.setText("Especialidad:");
-        panelCitas.add(jblFechaCita3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 110, 20));
+        panelCitas.add(jblFechaCita3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 110, 20));
 
-        txtHora.setBackground(new java.awt.Color(255, 255, 255));
+        txtHora.setBackground(new java.awt.Color(204, 255, 204));
         txtHora.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtHora.setBorder(null);
         txtHora.addActionListener(new java.awt.event.ActionListener() {
@@ -320,19 +309,20 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtHoraKeyReleased(evt);
             }
         });
-        panelCitas.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 150, 20));
-        panelCitas.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 150, 10));
+        panelCitas.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 150, 20));
 
-        jcbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Neurología", "Cardiología", "Ortopedía", "Oftalmología", "Oncología", "Psquiatría", "Reumatología", "Medicina General" }));
+        jcbDepartamento.setBackground(new java.awt.Color(204, 255, 204));
+        jcbDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Neurología", "Cardiología", "Ortopedía", "Oftalmología", "Oncología", "Psquiatría", "Reumatología", "Medicina General" }));
         jcbDepartamento.setToolTipText("");
-        panelCitas.add(jcbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 150, -1));
+        jcbDepartamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        panelCitas.add(jcbDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 150, -1));
 
-        jblFechaCita4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jblFechaCita4.setForeground(new java.awt.Color(0, 0, 0));
+        jblFechaCita4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jblFechaCita4.setForeground(new java.awt.Color(255, 255, 255));
         jblFechaCita4.setText("Descripción:");
-        panelCitas.add(jblFechaCita4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 100, 20));
+        panelCitas.add(jblFechaCita4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 100, 20));
 
-        txtDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDescripcion.setBackground(new java.awt.Color(204, 255, 204));
         txtDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDescripcion.setBorder(new javax.swing.border.MatteBorder(null));
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
@@ -345,15 +335,25 @@ public class pnlCitas extends javax.swing.JPanel {
                 txtDescripcionKeyReleased(evt);
             }
         });
-        panelCitas.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 150, 60));
+        panelCitas.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 150, 20));
 
-        jdcFechaCita.setBackground(new java.awt.Color(153, 0, 153));
-        panelCitas.add(jdcFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 150, -1));
+        jdcFechaCita.setBackground(new java.awt.Color(204, 255, 204));
+        panelCitas.add(jdcFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 150, -1));
 
-        jcbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino", " " }));
-        panelCitas.add(jcbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 160, -1));
+        jcbSexo.setBackground(new java.awt.Color(204, 255, 204));
+        jcbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "masculino", "femenino" }));
+        jcbSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbSexoActionPerformed(evt);
+            }
+        });
+        panelCitas.add(jcbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 150, -1));
 
-        add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 530, 250));
+        jLabel9.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/vvv.jpg"))); // NOI18N
+        panelCitas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 660, 310));
+
+        add(panelCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 650, 270));
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -373,16 +373,12 @@ public class pnlCitas extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCitas);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 620, 170));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 650, 200));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Gestionar Citas");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/Imagenes/fc.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 650, 540));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDescripcionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescripcionKeyReleased
@@ -446,8 +442,6 @@ public class pnlCitas extends javax.swing.JPanel {
         txtDescripcion.setText(cc.getCedula());
         txtHora.setText(cc.getHora());
         jcbDepartamento.setSelectedItem(cc.getDepartamento());
-        
-        
         jcbSexo.setSelectedItem(cc.getSexo());
     }//GEN-LAST:event_btnSeleccionarCitasActionPerformed
 
@@ -479,7 +473,7 @@ public class pnlCitas extends javax.swing.JPanel {
             cc.setHora(txtHora.getText());
             cc.guardarCitas();
             limpiarCampos();
-            btnGuardar.setEnabled(false);
+            habilitarBoton();
             cc.mostrarCitas(tblCitas);
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
@@ -538,6 +532,10 @@ public class pnlCitas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_tblCitasMouseClicked
 
+    private void jcbSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbSexoActionPerformed
+
      private void limpiarCampos() {
         txtCedula.setText("");
         txtNombres.setText("");
@@ -590,17 +588,9 @@ public class pnlCitas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel jblFechaCita;
     private javax.swing.JLabel jblFechaCita1;
     private javax.swing.JLabel jblFechaCita2;

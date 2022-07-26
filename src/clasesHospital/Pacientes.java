@@ -27,6 +27,9 @@ public class Pacientes {
     private String direccion;
     private String telefono;
     private String sexo;
+    private String cita;
+    private String tipoSangre;
+    private String estadoPaciente;
 
     public String getCedula() {
         return cedula;
@@ -48,6 +51,18 @@ public class Pacientes {
         return sexo;
     }
 
+    public String getCita() {
+        return cita;
+    }
+
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public String getEstadoPaciente() {
+        return estadoPaciente;
+    }
+
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
@@ -67,6 +82,19 @@ public class Pacientes {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    public void setCita(String cita) {
+        this.cita = cita;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+
+    public void setEstadoPaciente(String estadoPaciente) {
+        this.estadoPaciente = estadoPaciente;
+    }
+    
     public void crearArchivoPacientes() { //metodo para crear un archivo para medicamentos
         try {
         File objetoArchivo = new File( "Pacientes.txt" ); //instancia de la clase File
@@ -93,6 +121,12 @@ public class Pacientes {
             fw.write(getTelefono());
             fw.write( ", " );
             fw.write(getSexo());
+            fw.write( ", " );
+            fw.write(getCita());
+            fw.write( ", " );
+            fw.write(getTipoSangre());
+            fw.write( ", " );
+            fw.write(getEstadoPaciente());
             fw.write( "\n" );
             fw.close();
             JOptionPane.showMessageDialog(null, "Se guardo correctamente el Paciente" +getNombres() );
@@ -114,6 +148,9 @@ public class Pacientes {
            mt.addColumn( "Dirección" );
            mt.addColumn( "Teléfono" );
            mt.addColumn( "Sexo" );
+           mt.addColumn( "Sitio atención" );
+           mt.addColumn( "Tipo de sangre" );
+           mt.addColumn( "Estado paciente" );
            tblPacientes.setModel(mt); // agregamos el modelo
            Object [] camposTabla = br.lines().toArray(); //todo lo de la linea en un objeto tipo vector
            for (int i = 0; i < camposTabla.length; i++) {
@@ -136,6 +173,9 @@ public class Pacientes {
                setDireccion(tblPacientes.getValueAt(numeroFila, 2).toString());
                setTelefono(tblPacientes.getValueAt(numeroFila, 3).toString());
                setSexo(tblPacientes.getValueAt(numeroFila, 4).toString());
+               setCita(tblPacientes.getValueAt(numeroFila, 5).toString());
+               setTipoSangre(tblPacientes.getValueAt(numeroFila, 6).toString());
+               setEstadoPaciente(tblPacientes.getValueAt(numeroFila, 7).toString());
            }
            
        } catch (Exception ex) {

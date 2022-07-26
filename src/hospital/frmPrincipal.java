@@ -137,7 +137,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnGestionarPacientesActionPerformed(evt);
             }
         });
-        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 150, 39));
+        panel.add(btnGestionarPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 150, 39));
 
         btnGestionarCitas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarCitas.setForeground(new java.awt.Color(255, 255, 255));
@@ -149,21 +149,31 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnGestionarCitasActionPerformed(evt);
             }
         });
-        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 150, 38));
+        panel.add(btnGestionarCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 150, 38));
 
         btnGestionarVentas.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarVentas.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarVentas.setText("Gestionar Ventas");
         btnGestionarVentas.setBorder(null);
         btnGestionarVentas.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 150, 41));
+        btnGestionarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarVentasActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 150, 41));
 
         btnGestionarEmpleados.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarEmpleados.setText("Gestionar Empleados");
         btnGestionarEmpleados.setBorder(null);
         btnGestionarEmpleados.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 150, 38));
+        btnGestionarEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarEmpleadosActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 150, 38));
 
         btnGestionarMedicamentos.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarMedicamentos.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,14 +184,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                 btnGestionarMedicamentosActionPerformed(evt);
             }
         });
-        panel.add(btnGestionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 150, 39));
+        panel.add(btnGestionarMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 150, 39));
 
         btnGestionarHorarios.setBackground(new java.awt.Color(85, 55, 118));
         btnGestionarHorarios.setForeground(new java.awt.Color(255, 255, 255));
         btnGestionarHorarios.setText("Gestionar Horarios");
         btnGestionarHorarios.setBorder(null);
         btnGestionarHorarios.setPreferredSize(new java.awt.Dimension(162, 22));
-        panel.add(btnGestionarHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 150, 38));
+        btnGestionarHorarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarHorariosActionPerformed(evt);
+            }
+        });
+        panel.add(btnGestionarHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 150, 38));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,6 +283,24 @@ public class frmPrincipal extends javax.swing.JFrame {
         pnlCitas pc = new pnlCitas();
         ShowPanel(pc);
     }//GEN-LAST:event_btnGestionarCitasActionPerformed
+
+    private void btnGestionarEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarEmpleadosActionPerformed
+        // TODO add your handling code here:
+        pnlEmpleados pe = new pnlEmpleados();
+        ShowPanel(pe);
+    }//GEN-LAST:event_btnGestionarEmpleadosActionPerformed
+
+    private void btnGestionarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarVentasActionPerformed
+        // TODO add your handling code here:
+        pnlVentas pv = new pnlVentas();
+        ShowPanel(pv);
+    }//GEN-LAST:event_btnGestionarVentasActionPerformed
+
+    private void btnGestionarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarHorariosActionPerformed
+        // TODO add your handling code here:
+         pnlHorarios ph = new pnlHorarios();
+        ShowPanel(ph);
+    }//GEN-LAST:event_btnGestionarHorariosActionPerformed
 
     /**
      * @param args the command line arguments

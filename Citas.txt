@@ -2,3 +2,8 @@
 123, Thomy, 24, tumbaco, 0969485562, masculino, general, 2022/12/31, Neurología, enfermo, 15:00 pm
 12, 123, 13, 132, 132, masculino, 123, 2022/07/01, Oftalmología, 12, 131
 12, 12, 12, 12, 12, femenino, 12, 2022/07/12, Oftalmología, 12, 12
+123, 123, 123, 1e23, 1e, femenino, 123, 2022/07/19, Ortopedía, 132123, 132
+123, 123, 123, 123, 123,  , 123, 2022/07/01, Psquiatría, 123, 123
+123, 1231, 1, 1, 1, femenino, 1, 2022/07/05, Oncología, 1, 1
+123, 213, 123, 123, 123, masculino, 123, 2022/07/02, Neurología, 123, 123
+123, 123123, 1231234, 123123, 12313, femenino, 123, 2022/07/08, Cardiología, 123131234, 13213

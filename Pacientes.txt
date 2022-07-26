@@ -1,3 +1,12 @@
-Cedula, Nombres, Edad, Dirección, Teléfono, Sexo, Especialidad, Fecha cita, Departamento, Descripción, Hora
-123, Thomy, 24, tumbaco, 0969485562, masculino, general, 2022/12/31, Neurología, enfermo, 15:00 pm
-12, 123, 13, 132, 132, masculino, 123, 2029/07/01, Oftalmología, 12, 131
+1, 2, 3, 4, xd, maternidad, (B+), null
+ttt, tt, tt, tt, Femenino, laboratorio, (B+), null
+1, 2, 3, 4, Masculino, emergencia, (A-), null
+1, 2, 3, 4, Masculino, pediatría, (B+), null
+11212, 1231, 123e314, 1234, Femenino, pediatría, (AB+), null
+111, 123333, 111, 111, Masculino, emergencia, (A-), 111
+123, 1213, 123, 14444, Femenino, obstetricía, (A-), 1111
+123, 12324, 124112, 2152, Masculino, emergencia, (A-), 111111
+123, 12311, 1111, 111, Femenino, emergencia, (A+), 111
+123, 123, 123123, 123, Femenino, emergencia, (A+), 123
+1, 2, 3, 4, Femenino, pediatría, (B+), 4
+123, 1111, 1111, 111, Masculino, emergencia, (A-), 111

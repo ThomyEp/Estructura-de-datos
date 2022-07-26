@@ -100,7 +100,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         jLabel6.setText("Tipo:");
         jpnDatos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        txtNombreMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreMedicamento.setBackground(new java.awt.Color(204, 255, 204));
         txtNombreMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtNombreMedicamento.setBorder(null);
         txtNombreMedicamento.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         });
         jpnDatos.add(txtNombreMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 90, 30));
 
-        txtFechaeMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaeMedicamento.setBackground(new java.awt.Color(204, 255, 204));
         txtFechaeMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtFechaeMedicamento.setBorder(null);
         txtFechaeMedicamento.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         });
         jpnDatos.add(txtFechaeMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 90, 30));
 
-        txtFechacMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechacMedicamento.setBackground(new java.awt.Color(204, 255, 204));
         txtFechacMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtFechacMedicamento.setBorder(null);
         txtFechacMedicamento.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -140,7 +140,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         });
         jpnDatos.add(txtFechacMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 90, 30));
 
-        txtStockMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtStockMedicamento.setBackground(new java.awt.Color(204, 255, 204));
         txtStockMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtStockMedicamento.setBorder(null);
         txtStockMedicamento.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class pnlMedicamentos extends javax.swing.JPanel {
         });
         jpnDatos.add(txtStockMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 90, -1));
 
-        txtCodigoMedicamento.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoMedicamento.setBackground(new java.awt.Color(204, 255, 204));
         txtCodigoMedicamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtCodigoMedicamento.setBorder(null);
         txtCodigoMedicamento.addActionListener(new java.awt.event.ActionListener() {
